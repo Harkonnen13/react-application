@@ -1,0 +1,31 @@
+@import './mixins.less';
+@import './vars.less';
+
+.make-card(@direction: column, @wrap: wrap, @background: @main-item-color){
+    background: @background;
+    cursor: default;
+    height: 100%;
+    .display-flex();
+    .flex-wrap(@wrap);
+    .flex-direction(@direction);
+    .mix-box-shadow-8();
+    .mix-transition(all, 0.25s, ease-in);
+
+    &:hover{
+        .mix-box-shadow-12();
+    }
+}
+
+.primary-button(){
+    font-size: 16px;
+    padding: 4px 8px;
+
+    &:hover{
+        background: #da9636;
+        border-color: #da9636;
+    }
+
+    &:focus{
+        color: white;
+    }
+}

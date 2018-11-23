@@ -1,0 +1,54 @@
+.mix-animation(@name, @duration, @fill, @delay, @rules){
+    @computed : ~'@{name}-keyframes';
+    animation-name: @computed;
+    animation-duration: @duration;
+    animation-fill-mode: @fill;
+    animation-delay: @delay;
+    .mix-keyframes(@computed, @rules)
+}
+
+.mix-animation-style(@className, @name, @duration, @fill, @delay, @rules){
+    @computed : ~'@{className}-@{name}';
+    & .@{computed} {
+        .mix-animation(@computed, @duration, @fill, @delay , @rules);
+    }
+}
+
+.mix-animation-delays(@name, @duration, @fill, @delay, @rules, @index) when (@index >= 0){
+    .mix-animation-delays(@name, @duration, @fill, @delay, @rules, (@index - 1)); // decrement.
+ 
+    @computed : ~'@{name}@{index}';
+  & .@{name}@{index} {
+    .mix-animation-delay(@computed, @duration, @fill, @delay * @index, @rules);
+  }
+}
+
+.mix-animation-delay(@name, @duration, @fill, @delay, @rules){
+    @computed : ~'@{name}-keyframes';
+    animation-name: @computed;
+    animation-duration: @duration;
+    animation-fill-mode: @fill;
+    animation-delay: @delay;
+    .mix-keyframes(@computed, @rules)
+}
+
+.mix-keyframes(@name, @rules) {
+    @-webkit-keyframes @name {
+        @rules();
+    }
+    @-moz-keyframes @name {
+        @rules();
+    }
+    @-ms-keyframes @name {
+        @rules();
+    }
+    @-o-keyframes @name {
+        @rules();
+    }
+    @keyframes @name {
+        @rules();
+    }
+}
+
+
+    

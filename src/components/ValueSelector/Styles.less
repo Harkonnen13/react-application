@@ -1,0 +1,38 @@
+@import '../../less/template.less';
+
+.valueSelector{
+    .display-flex();
+    .flex-direction(row);
+    
+    &-plus,
+    &-minus{
+        height: 34px;
+        width: 34px;
+        vertical-align: middle;
+        line-height: 32px;
+        font-size: 20px;
+        cursor: pointer;
+        text-align: center;
+        opacity: 0.8;
+        .mix-transition(all, 0.25s, ease-in);
+        .mix-non-draggable();
+        
+        &:hover{
+            opacity: 0.8;
+            background-color: @main-dark-color;
+            color: #fff;
+        }
+    }
+
+    &-input{
+        display: inline-block;
+        height: 34px;
+        width: 34px;
+        box-sizing: border-box;
+        vertical-align: middle;
+        text-align: center;
+        font-size: 18px;
+        font-weight: bold;
+        opacity: 0.8;
+    }
+}

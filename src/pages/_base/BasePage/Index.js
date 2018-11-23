@@ -1,0 +1,40 @@
+import 'bootstrap/dist/css/bootstrap.css';
+import './Styles.less';
+
+import React, { Component } from 'react';
+
+class BasePage extends Component {
+
+  constructor(props){
+    super(props);
+  }
+
+  //#region Component override
+  
+  render() {
+    return (
+      <div className='basePage'>
+        {this.renderHeader()}
+        {this.renderContent()}
+        {this.renderFooter()}
+      </div>
+    );
+  }
+
+  //#endregion Component override
+
+  //#region Render methods
+
+  renderHeader = () => {
+  };
+
+  renderContent = () => {
+  };
+
+  renderFooter = () => {
+  };
+
+  //#endregion Render methods
+}
+
+export default BasePage;
