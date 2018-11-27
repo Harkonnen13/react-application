@@ -1,40 +1,41 @@
 @import './template.less';
 
 svg{
-    fill: @menu-light-text-color;
-    .mix-transition(all 0.5s ease);
-    &:hover{
-        fill: @main-link-hover-color;
-    }
+  fill: @menu-light-text-color;
+  .mix-transition(all 0.5s ease);
+  
+  &:hover{
+    fill: @main-link-hover-color;
+  }
 }
 
 .link{
-    cursor: pointer;
-    color: inherit;
-    display: inline-block;
-    font-weight: bold;
-    overflow: hidden;
-    padding: 4px 0 0;
-    position: relative;
-    text-decoration: none !important;
-    .mix-transition(all 0.5s ease);
+  cursor: pointer;
+  color: inherit;
+  display: inline-block;
+  font-weight: bold;
+  overflow: hidden;
+  padding: 4px 0 0;
+  position: relative;
+  text-decoration: none !important;
+  .mix-transition(all 0.5s ease);
 
-    &:hover{
-        color: @main-link-hover-color;
-        padding: 0 0 4px;
-        &::after{
-            right: 0;
-        }
-    }
+  &:hover{
+    color: @main-link-hover-color;
+    padding: 0 0 4px;
     &::after{
-        background-color: @main-link-hover-color;
-        bottom: 0;
-        content: '';
-        display: block;
-        height: 1px;
-        right: 100%;
-        position: absolute;
-        width: 100%;
-        .mix-transition(all 0.5s ease);
+      right: 0;
     }
+  }
+  &::after{
+    background-color: @main-link-hover-color;
+    bottom: 0;
+    content: '';
+    display: block;
+    height: 1px;
+    right: 100%;
+    position: absolute;
+    width: 100%;
+    .mix-transition(all 0.5s ease);
+  }
 }

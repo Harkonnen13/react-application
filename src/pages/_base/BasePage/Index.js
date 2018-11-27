@@ -3,6 +3,9 @@ import './Styles.less';
 
 import React, { Component } from 'react';
 
+/**
+ * Base page class with base rendering methods
+ */
 class BasePage extends Component {
 
   constructor(props){

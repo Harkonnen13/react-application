@@ -9,22 +9,16 @@ import Spinner from '../../components/Spinner';
 class ProductsPage extends MasterPage {
   constructor(props){
     super(props);
-    this.state = {
-      list : []
-    };
   }
 
   componentDidMount(){
-    $.getJSON(this.props.href)
-      .done(res => {
-        this.setState({ list: res }); 
-          $('.productsPage-loading').addClass('hide');
-      });
+    this.props.fetchProducts(this.props.href);
   }
 
   //#region Render methods
 
   renderContent = () => {
+    let loaded = this.props.loaded ? 'hide' : '';
     return (
       <div className='productsPage-wrapper'>
         <div className='productsPage container'>
@@ -35,9 +29,10 @@ class ProductsPage extends MasterPage {
           <div className='productsPage-list'>
             <ProductList 
               title={this.props.title}
-              list={this.state.list}>
+              list={this.props.list || []}
+              addCartItem={this.props.addCartItem}>
             </ProductList>
-            <div className='productsPage-loading'>
+            <div className={`productsPage-loading ${loaded}`}>
               <Spinner></Spinner>
             </div>
           </div>

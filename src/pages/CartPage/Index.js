@@ -1,8 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.css';
 import './Styles.less';
 
-import $cm from '../../logic/CartManager';
-
 import React from 'react';
 import MasterPage from '../_base/MasterPage';
 import CartCard from '../../components/CartCard';
@@ -10,17 +8,17 @@ import PaymentCard from '../../components/PaymentCard/Index';
 
 class CartPage extends MasterPage {
 
-  constructor(props){
-    super(props);
-  }
-
   //#region Render methods
 
   renderContent = () => {
-    let products = Object.values($cm.instance.cart),
+    let products = Object.values(this.props.cart),
         empty = products.length === 0,
         cards = products.map(v =>
-            <CartCard key={v.data.id} data={v.data} count={v.count}/>
+            <CartCard key={v.data.id} 
+                      data={v.data} 
+                      count={v.count} 
+                      update={this.props.updateCartItem}
+                      delete={this.props.deleteCartItem}/>
         );
     return (
       <div className='cartPage'>

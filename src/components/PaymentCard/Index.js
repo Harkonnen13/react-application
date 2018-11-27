@@ -1,8 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.css';
 import './Styles.less';
 
-import $cm from '../../logic/CartManager';
-
 import React from 'react';
 import CardBase from '../_comp-base/CardBase';
 
@@ -10,7 +8,6 @@ class PaymentCard extends CardBase {
   constructor(props){
     super(props);
   }
-
 
   renderCard = () => {
     return (

@@ -1,8 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.css';
 import './Styles.less';
 
-import $cm from '../../logic/CartManager';
-
 import React from 'react';
 import CardBase from '../_comp-base/CardBase';
 import ImageBox from '../ImageBox';
@@ -17,8 +15,13 @@ class CartCard extends CardBase {
   }
 
   onCountChange = (count) => {
-    $cm.instance.changeProduct(this.props.data, count);
-    this.setState({price: this.props.data.price * count});
+    if(count > 0){
+      this.props.update(this.props.data, count);
+      this.setState({price: this.props.data.price * count});
+    } 
+    else{
+      this.props.delete(this.props.data);
+    }
   }
 
   renderCard = () => {
@@ -31,10 +34,10 @@ class CartCard extends CardBase {
               <div className='cartCard-title'>{this.props.data.name}</div>
           </div>
           <div className='cartCard-count col-6 col-xl-3'>
-            <ValueSelector min={1}
+            <ValueSelector min={0}
                            max={30} 
                            value={this.props.count}
-                           onValueChanged={this.onCountChange.bind(this)}/>
+                           onValueChanged={this.onCountChange}/>
           </div>
           <div className='cartCard-price col-6 col-xl-2'>
             {this.state.price} &#x20bd;

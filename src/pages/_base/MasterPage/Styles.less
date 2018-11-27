@@ -1,56 +1,62 @@
 @import '../../../less/template.less';
 
 .masterPage{
-    &-header{
-        height: 88px;
-        width: 100%;
-        color: @menu-light-text-color;
-        @media (min-width: @screen-min) and (max-width: @screen-lg-min) {           height: 60px;
-        }
-    }
+  &-header{
+    height: 88px;
+    width: 100%;
+    color: @menu-light-text-color;
 
-    &-wrapper{
-        width: 100%;
-        top: 0;
-        position: fixed;
-        background: @main-dark-color;
-        z-index: 1000;
-        .mix-box-shadow-6();
+    @media (min-width: @screen-min) and (max-width: @screen-lg-min) {
+      height: 60px;
     }
-    
-    &-menu{
-        padding: 16px;
-        .display-flex();
-    }
+  }
 
-    &-item{
-        padding-right: 10px;
-        @media (min-width: @screen-min) and (max-width: @screen-xs-max) {           font-size: 14px; 
-        }
-    }
+  &-wrapper{
+    background: @main-dark-color;
+    top: 0;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    .mix-box-shadow-6();
+  }
+  
+  &-menu{
+    padding: 16px;
+    .display-flex();
+  }
 
-    &-links{
-        padding: 6px 0 0;
-        .display-flex();
-        .flex-direction(row);
-        .justify-content(flex-end);
-        @media (min-width: @screen-min) and (max-width: @screen-xs-max) {
-            padding: 16px 0;
-            justify-content: center;
-        }
-    }
+  &-item{
+    padding-right: 10px;
 
-    &-copyrates{
-        padding-top: 30px;
-        text-align: end;
-        @media (min-width: @screen-min) and (max-width: @screen-xs-max) {
-            padding-top: 0;
-            text-align: center;
-        }
+    @media (min-width: @screen-min) and (max-width: @screen-xs-max) {
+      font-size: 14px; 
     }
+  }
 
-    &-footer{
-        color: @menu-light-text-color;
-        background: @main-dark-color;
+  &-links{
+    padding: 6px 0 0;
+    .display-flex();
+    .flex-direction(row);
+    .justify-content(flex-end);
+
+    @media (min-width: @screen-min) and (max-width: @screen-xs-max) {
+      padding: 16px 0;
+      justify-content: center;
     }
+  }
+
+  &-copyrates{
+    padding-top: 30px;
+    text-align: end;
+
+    @media (min-width: @screen-min) and (max-width: @screen-xs-max) {
+      padding-top: 0;
+      text-align: center;
+    }
+  }
+
+  &-footer{
+    color: @menu-light-text-color;
+    background: @main-dark-color;
+  }
 }

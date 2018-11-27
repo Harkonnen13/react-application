@@ -15,25 +15,22 @@ class Menu extends Component {
   constructor(props){
     super(props);
     this.state = { 
-        showButton: this.getShowButton(),
-        menuOpen: false,
-        scrolled: false
+      showButton: this.getShowButton(props),
+      menuOrientation: this.getOrientation(props),
+      menuOpen: false
     };
   }
 
-  componentWillUnmount(){
-    $ms.instance.removeListener($ms.events.screenChanged, this.onScreen);
-    $sw.instance.removeListener($sw.events.scrollChanged, this.onScroll);
-  }
-
-  componentDidMount(){
-    $ms.instance.on($ms.events.screenChanged, this.onScreen);
-    $sw.instance.on($sw.events.scrollChanged, this.onScroll);
+  componentWillReceiveProps(nextProps){
+    this.setState({ 
+      showButton: this.getShowButton(nextProps),
+      menuOrientation: this.getOrientation(nextProps)
+    });
   }
 
   render() {
     let hide = this.state.showButton ? '' : 'hide',
-        scrolled = (this.state.scrolled || $ms.instance.screen < $ms.screens.xl) ? ''  : 'no-scroll';
+        scrolled = (this.props.scrolled || this.props.screen < $ms.screens.xl) ?''  : 'no-scroll';
     return (
       <div>
         <div className='menu container'>
@@ -50,14 +47,14 @@ class Menu extends Component {
           <div className='menu-item'>
             <div className='col-12 font-weight-bold'>
             {
-              $ms.instance.screen >= $ms.screens.md &&
+              this.props.screen >= $ms.screens.md &&
                 <span className='menu-phone'>8 (800) 960-01-01</span>
             }
             </div>
             {
                 !this.state.showButton && 
                 <div className='col-12'>
-                  <Navigation orientation={this.getOrientation()}
+                  <Navigation orientation={this.state.menuOrientation}
                               list={this.getMenuItems()}>
                   </Navigation>
                 </div>
@@ -78,12 +75,12 @@ class Menu extends Component {
         <div className={
           'menu-popup-menu container-fluid' + (this.state.menuOpen &&this.state.showButton ? '' : ' hide')}>
           {
-              $ms.instance.screen < $ms.screens.md &&
+              this.props.screen < $ms.screens.md &&
               <span>8 (800) 960-01-01</span>
           }
           {
             this.state.showButton && 
-            <Navigation orientation={this.getOrientation()}
+            <Navigation orientation={this.state.menuOrientation}
                         list={this.getMenuItems()}>
             </Navigation>
           }
@@ -100,27 +97,25 @@ class Menu extends Component {
       { title: 'Паста', to: '/pasta/' },
       { title: 'Салаты', to: '/salad/'},
       { title: 'Напитки', to: '/drinks/'}
-      
     ]
   }
 
-  getShowButton(){
-    switch($ms.instance.screen){
+  getShowButton(props){
+    switch(props.screen){
       case $ms.screens.sm:
       case $ms.screens.md:
       case $ms.screens.lg:
         return true;
+
       default:
-        return $sw.instance.scrolled;
+        return props.scrolled;
     }
   }
 
-  getOrientation = () => {
-    switch($ms.instance.screen){
+  getOrientation(props) {
+    switch(props.screen){
       case $ms.screens.sm:
         return Navigation.orientations.column;
-      case $ms.screens.md:
-      case $ms.screens.lg:
       default:
         return Navigation.orientations.row;
     }
@@ -131,29 +126,6 @@ class Menu extends Component {
   //#region Event handlers
 
   onButtonClick = () => this.setState({ menuOpen: !this.state.menuOpen });
-
-  onScreen = (screen) => {
-    let showButton = false;
-    switch(screen){
-      case $ms.screens.xl:
-        showButton = $sw.instance.scrolled;
-        break;
-      case $ms.screens.lg:
-      case $ms.screens.md:
-      case $ms.screens.sm:
-      case $ms.screens.xs:
-        showButton = true;
-        break;
-    }
-    this.setState({ showButton: showButton });
-  }
-
-  onScroll = (scrolled) => {
-    let state = { scrolled: scrolled };
-    if($ms.instance.screen === $ms.screens.xl)
-      state.showButton =  scrolled;
-    this.setState(state);
-  }
 
   //#endregion Event handlers
 }

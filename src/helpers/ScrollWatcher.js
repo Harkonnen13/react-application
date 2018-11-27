@@ -1,42 +1,17 @@
-import EventEmitter from 'events';
+import Actions from '../logic/data/Actions';
 
-let instance;
-
-class ScrollWatcher extends EventEmitter {
-
-    static get instance(){
-        return instance || (instance = new ScrollWatcher());
-    }
-
-    static get events() { 
-        return {
-            scrollChanged: 'scrollChanged'
-        }; 
-    }
+class ScrollWatcher {
 
     constructor(){
-      super();
-      if(instance)
-        return instance;
-        
-      this._scrolled = false;
       $(document).ready(() => {
         $(window).scroll(this.onScroll);
       });
-      instance = this;
     }
 
-    get scrolled() { 
-        return this._scrolled;
-    }
-
-    onScroll = (e) =>{
-        let computed = e.target.scrollingElement.scrollTop > 40;
-        if(this._scrolled !== computed){
-            this._scrolled = computed;
-            this.emit(ScrollWatcher.events.scrollChanged, this._scrolled);
-        }
+    onScroll(e){
+      if(e.target.scrollingElement)
+        Actions.scroll(e.target.scrollingElement.scrollTop);
     }
 }
-
+var sw = new ScrollWatcher();
 export default ScrollWatcher;

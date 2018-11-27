@@ -6,10 +6,6 @@ import MasterPage from '../_base/MasterPage';
 
 class LandingPage extends MasterPage {
 
-  constructor(props){
-    super(props);
-  }
-
   //#region Render methods
 
   renderContent = () => {

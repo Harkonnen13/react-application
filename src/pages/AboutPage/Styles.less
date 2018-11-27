@@ -1,26 +1,26 @@
 @import '../../less/template.less';
 
 .aboutPage{
+  .flex-grow(1);
+  .display-flex();
+  
+  &-body{
     .flex-grow(1);
+  }
+
+  &-title{
+    padding: 16px;
+    & h1{
+      font-weight: bold;
+      font-variant-caps: all-petite-caps;
+      opacity: 0.8;
+    }
+  }
+
+  &-text{
+    padding: 16px;
     .display-flex();
-    
-    &-body{
-        .flex-grow(1);
-    }
-
-    &-title{
-        padding: 16px;
-        & h1{
-            font-weight: bold;
-            font-variant-caps: all-petite-caps;
-            opacity: 0.8;
-        }
-    }
-
-    &-text{
-        padding: 16px;
-        .display-flex();
-        .flex-direction(column);
-        .justify-content(space-between);
-    }
+    .flex-direction(column);
+    .justify-content(space-between);
+  }
 }

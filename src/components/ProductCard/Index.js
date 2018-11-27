@@ -1,9 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.css';
 import './Styles.less';
 
-import CartManager from '../../logic/CartManager';
-
-import React, { PureComponent } from 'react';
+import React from 'react';
 import CardBase from '../_comp-base/CardBase';
 import Tag from '../Tag/Index';
 import ImageBox from '../ImageBox';
@@ -15,7 +13,7 @@ class ProductCard extends CardBase {
   }
 
   onAddToCart = () => {
-    CartManager.instance.addProduct(this.props.product);
+    this.props.addCartItem(this.props.product);
   }
 
   getColumns = () =>{
