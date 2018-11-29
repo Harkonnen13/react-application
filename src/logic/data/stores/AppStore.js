@@ -18,11 +18,7 @@ class AppStore extends ReduceStore {
         screen = this.getScreen(doc.innerWidth());
 
     return Immutable.Map({ 
-      scrolled: false, 
-      size: { 
-        innerHeigh: doc.innerHeight(), 
-        innerWidth: doc.innerWidth() 
-      }, 
+      scrolled: false,
       screen: screen,
       wrapperClass: this.getWrapperClass(screen)
     });
@@ -53,7 +49,6 @@ class AppStore extends ReduceStore {
       case ActionTypes.RESIZE:
         let screen = this.getScreen(action.size.innerHeigh);
         return state
-          .update('size', () => action.size)
           .update('screen', () => screen)
           .update('wrapperClass', () => this.getWrapperClass(screen));
       default:
