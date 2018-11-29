@@ -5,7 +5,6 @@ import './Styles.less';
 import React, { Component } from 'react';
 
 import $ms from '../../helpers/MediaSelector';
-import $sw from '../../helpers/ScrollWatcher';
 
 import Navigation from '../Navigation';
 import Hamburger from '../Hamburger';
@@ -33,7 +32,7 @@ class Menu extends Component {
         scrolled = (this.props.scrolled || this.props.screen < $ms.screens.xl) ?''  : 'no-scroll';
     return (
       <div>
-        <div className='menu container'>
+        <div className='menu'>
           <div className={`menu-item ${hide}`}>
             <Hamburger
                   hidden={!this.state.showButton}
@@ -73,7 +72,7 @@ class Menu extends Component {
           </div>
         </div>
         <div className={
-          'menu-popup-menu container-fluid' + (this.state.menuOpen &&this.state.showButton ? '' : ' hide')}>
+          'menu-popup-menu' + (this.state.menuOpen &&this.state.showButton ? '' : ' hide')}>
           {
               this.props.screen < $ms.screens.md &&
               <span>8 (800) 960-01-01</span>

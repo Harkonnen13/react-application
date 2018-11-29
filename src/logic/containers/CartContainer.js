@@ -21,6 +21,7 @@ class CartContainer extends Component{
               scrolled: aState.get('scrolled'),
               screen: aState.get('screen'),
               size: aState.get('size'),
+              wrapperClass: aState.get('wrapperClass'),
 
               cart: CartStore.getState(),
               updateCartItem: Actions.updateCartItem,

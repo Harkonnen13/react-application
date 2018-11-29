@@ -14,7 +14,9 @@ class MasterPage extends BasePage {
     return (
       <header className='masterPage-header'>
         <div className='masterPage-wrapper'>
-          <Menu {...this.props}></Menu>
+          <div className={this.props.wrapperClass}>
+            <Menu {...this.props}/>
+          </div>
         </div>
       </header>
     );
@@ -23,8 +25,7 @@ class MasterPage extends BasePage {
   renderFooter = () => {
     return (
       <footer className='masterPage-footer'>
-        <div className='masterPage-menu'>
-          <div className='container d-flex flex-row flex-wrap'>
+        <div className={`masterPage-menu ${this.props.wrapperClass}`}>
           <div className='masterPage-col col-xs-12 col-sm-3 col-md-3 col-lg-3'>
             <div className='masterPage-item'>
               <a href='/about/' className='link'>О компании</a>
@@ -109,7 +110,6 @@ class MasterPage extends BasePage {
                 <p>© 2006-2018 Logo Pizza.</p>
                 <p>Все права защищены.</p>
               </div>
-            </div>
           </div>
         </div>
       </footer>

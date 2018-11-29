@@ -17,7 +17,8 @@ class AboutContainer extends Component{
         state = {
             scrolled: aState.get('scrolled'),
             screen: aState.get('screen'),
-            size: aState.get('size')
+            size: aState.get('size'),
+            wrapperClass: aState.get('wrapperClass')
         };
     return state;
   }

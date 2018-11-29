@@ -21,30 +21,28 @@ class CartPage extends MasterPage {
                       delete={this.props.deleteCartItem}/>
         );
     return (
-      <div className='cartPage'>
-        <div className='container'>
-          <div className='cartPage-title'>
-            <h1>Корзина</h1>
-            <div style={{border: '1px solid gray'}}></div>
-          </div>
-          { 
-            empty &&
-            <div className={`cartPage-empty ${empty}`}>
-            Ваша корзина пуста.</div>
-          }
-
-          { 
-            !empty &&
-            <div className='cartPage-body container'>
-              <div className='cartPage-list col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-8'>
-                  {cards}
-              </div>
-              <div className='cartPage-payment col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-4'>
-                <PaymentCard></PaymentCard>
-              </div>
-            </div>
-          }
+      <div className={`cartPage ${this.props.wrapperClass}`}>
+        <div className='cartPage-line cartPage-title'>
+          <h1>Корзина</h1>
+          <div style={{border: '1px solid gray'}}></div>
         </div>
+        { 
+          empty &&
+          <div className={`cartPage-line cartPage-empty ${empty}`}>
+          Ваша корзина пуста.</div>
+        }
+
+        { 
+          !empty &&
+          <div className='cartPage-line cartPage-body'>
+            <div className='cartPage-list col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-8'>
+                {cards}
+            </div>
+            <div className='cartPage-payment col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-4'>
+              <PaymentCard></PaymentCard>
+            </div>
+          </div>
+        }
       </div>
     );
   };

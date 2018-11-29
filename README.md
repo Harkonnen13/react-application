@@ -3,7 +3,7 @@ test react application
 
 Тестовый проект на React.
 Все совпадения в названиях случайны.
-Используются React.js, Webpack, Bootstrap, Less, JQuery, react-routing.
+Используются React.js, Webpack, Bootstrap, Less, JQuery, react-routing, Flux, Immutable.
 Кроссбраузерная и адаптивная верстка, анимации, миксины.
 
 Для запуска необходим Node.js, npm.

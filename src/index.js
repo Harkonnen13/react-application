@@ -4,6 +4,9 @@ import React from 'react';
 import { render } from 'react-dom';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
+import './helpers/MediaSelector';
+import './helpers/ScrollWatcher';
+
 import ScrollToTop from './components/ScrollTotop';
 
 import AboutContainer from './logic/containers/AboutContainer';

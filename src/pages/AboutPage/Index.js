@@ -15,7 +15,7 @@ class AboutPage extends MasterPage {
   renderContent = () => {
     return (
       <div className='aboutPage'>
-        <div className='aboutPage-body container'>
+        <div className={`aboutPage-body ${this.props.wrapperClass}`}>
             <div className='aboutPage-title'>
               <h1>O компании Pizza Logo</h1>
               <div style={{border: '1px solid gray'}}></div>

@@ -1,5 +1,7 @@
 import Actions from '../logic/data/Actions';
 
+let ms;
+
 class MediaSelector {
 
   static get screens() { 
@@ -12,6 +14,8 @@ class MediaSelector {
   }
 
   constructor(){
+    if(ms)
+      return ms;
     $(document).ready(() => {
       $(window).resize(this.onResize);
     });
@@ -24,5 +28,5 @@ class MediaSelector {
     });
   }
 }
-var ms = new MediaSelector();
+ms = new MediaSelector();
 export default MediaSelector;

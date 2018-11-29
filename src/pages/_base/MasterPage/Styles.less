@@ -2,12 +2,12 @@
 
 .masterPage{
   &-header{
-    height: 88px;
+    height: 90px;
     width: 100%;
     color: @menu-light-text-color;
 
     @media (min-width: @screen-min) and (max-width: @screen-lg-min) {
-      height: 60px;
+      height: 58px;
     }
   }
 
@@ -21,8 +21,10 @@
   }
   
   &-menu{
-    padding: 16px;
+    padding: 16px 0;
     .display-flex();
+    .flex-direction(row);
+    .flex-wrap(wrap);
   }
 
   &-item{

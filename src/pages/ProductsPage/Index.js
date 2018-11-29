@@ -21,7 +21,7 @@ class ProductsPage extends MasterPage {
     let loaded = this.props.loaded ? 'hide' : '';
     return (
       <div className='productsPage-wrapper'>
-        <div className='productsPage container'>
+        <div className={`productsPage ${this.props.wrapperClass}`}>
           <div className='productsPage-title'>
             <h1>{this.props.title || 'Title'}</h1>
             <div style={{border: '1px solid gray'}}></div>
@@ -37,8 +37,8 @@ class ProductsPage extends MasterPage {
             </div>
           </div>
         </div>
-        <div className='productsPage-text'>
-          <div className='container'>
+        <div className='productsPage-info'>
+          <div className={`productsPage-text ${this.props.wrapperClass}`}>
             <p>Готовим восхитительное тесто для основы и не экономим на     ингредиентах и топингах! Именно поэтому наши пиццы тяжелее и   отличаются очень насыщенным вкусом!</p>
           </div>
         </div>

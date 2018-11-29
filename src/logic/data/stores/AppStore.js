@@ -14,15 +14,22 @@ class AppStore extends ReduceStore {
   }
 
   getInitialState() {
-    let doc = $(document);
+    let doc = $(document),
+        screen = this.getScreen(doc.innerWidth());
+
     return Immutable.Map({ 
       scrolled: false, 
       size: { 
         innerHeigh: doc.innerHeight(), 
         innerWidth: doc.innerWidth() 
       }, 
-      screen: this.getScreen(doc.innerWidth()) 
+      screen: screen,
+      wrapperClass: this.getWrapperClass(screen)
     });
+  }
+
+  getWrapperClass(screen){
+    return screen > MediaSelector.screens.lg ? 'container' : '';
   }
 
   getScreen(iw){
@@ -44,9 +51,11 @@ class AppStore extends ReduceStore {
         return state
           .update('scrolled', () => action.value > 40);
       case ActionTypes.RESIZE:
+        let screen = this.getScreen(action.size.innerHeigh);
         return state
           .update('size', () => action.size)
-          .update('screen', () => this.getScreen(action.size.innerHeigh));
+          .update('screen', () => screen)
+          .update('wrapperClass', () => this.getWrapperClass(screen));
       default:
         return state;
     }

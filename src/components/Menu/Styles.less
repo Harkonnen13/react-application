@@ -1,6 +1,7 @@
 @import '../../less/template.less';
 
 .menu{
+  position: relative;
   width: 100%;
   color: inherit;
   .display-flex();
@@ -16,12 +17,6 @@
     .flex-wrap(wrap);
     .justify-content(center);
     .mix-transition(all, 0.25s, ease-in);
-
-    &:first-child{
-      @media (min-width: @screen-min) and (max-width: @screen-xs-max) { 
-        .justify-content(flex-start);
-      }
-    }
     
     &:nth-child(2){
       .justify-content(flex-start);
@@ -62,6 +57,7 @@
   }
 
   &-popup-menu{
+    left: 0;
     color: inherit;
     background: #595a5f;
     position: fixed;

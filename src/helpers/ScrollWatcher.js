@@ -1,8 +1,12 @@
 import Actions from '../logic/data/Actions';
 
+let sw;
+
 class ScrollWatcher {
 
     constructor(){
+      if(sw)
+        return sw;
       $(document).ready(() => {
         $(window).scroll(this.onScroll);
       });
@@ -13,5 +17,5 @@ class ScrollWatcher {
         Actions.scroll(e.target.scrollingElement.scrollTop);
     }
 }
-var sw = new ScrollWatcher();
+sw = new ScrollWatcher();
 export default ScrollWatcher;

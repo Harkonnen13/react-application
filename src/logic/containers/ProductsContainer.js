@@ -24,15 +24,18 @@ class ProductsContainer extends Component{
           title: props.title,
           list: pState.get('products'),
           loaded: pState.get('loaded'), 
+
           scrolled: aState.get('scrolled'),
           screen: aState.get('screen'),
           size: aState.get('size'),
+          wrapperClass: aState.get('wrapperClass'),
 
           fetchProducts: Actions.fetchProducts,
           addCartItem: Actions.addCartItem
         };
     return state;
-  } 
+  }
+
   render() {
       return (
         <ProductsPage {...this.state}/>
