@@ -9112,13 +9112,13 @@ a.text-dark:hover, a.text-dark:focus {
 }
 
 .masterPage-header {
-  height: 88px;
+  height: 90px;
   width: 100%;
   color: #b5b5b5;
 }
 @media (min-width: 320px) and (max-width: 1200px) {
   .masterPage-header {
-    height: 60px;
+    height: 58px;
   }
 }
 .masterPage-wrapper {
@@ -9132,11 +9132,16 @@ a.text-dark:hover, a.text-dark:focus {
   box-shadow:  0px 3px 5px -1px rgba(0, 0, 0, 0.2),  0px 6px 10px 0px rgba(0, 0, 0, 0.14),  0px 1px 18px 0px rgba(0, 0, 0, 0.12);
 }
 .masterPage-menu {
-  padding: 16px;
+  padding: 16px 0;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: -ms-flex;
   display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
 }
 .masterPage-item {
   padding-right: 10px;
@@ -9196,6 +9201,7 @@ a.text-dark:hover, a.text-dark:focus {
 }
 
 .menu {
+  position: relative;
   width: 100%;
   color: inherit;
   display: -webkit-flex;
@@ -9227,12 +9233,6 @@ a.text-dark:hover, a.text-dark:focus {
   -o-transition: all 0.25s ease-in;
   -ms-transition: all 0.25s ease-in;
   transition: all 0.25s ease-in;
-}
-@media (min-width: 320px) and (max-width: 767px) {
-  .menu-item:first-child {
-    -webkit-justify-content: flex-start;
-    justify-content: flex-start;
-  }
 }
 .menu-item:nth-child(2) {
   -webkit-justify-content: flex-start;
@@ -9274,6 +9274,7 @@ a.text-dark:hover, a.text-dark:focus {
   transition: all 0.25s ease-in;
 }
 .menu-popup-menu {
+  left: 0;
   color: inherit;
   background: #595a5f;
   position: fixed;
@@ -9511,15 +9512,14 @@ a.text-dark:hover, a.text-dark:focus {
 .productsPage-loading.hide {
   display: none;
 }
+.productsPage-info {
+  background: #cbccb3;
+  padding: 16px;
+}
 .productsPage-text {
   clear: both;
   opacity: 0.8;
-  background-size: cover;
-  background-position: top center;
-  background: #cbccb3;
   font-size: 16px;
-  padding: 30px 0;
-  text-align: center;
 }
 
 .productList {
@@ -9820,20 +9820,18 @@ a.text-dark:hover, a.text-dark:focus {
 }
 
 .cartPage {
+  padding: 0 16px;
   -webkit-flex-grow: 1;
   -ms-flex-grow: 1;
   flex-grow: 1;
 }
-.cartPage-title {
-  padding: 16px;
+.cartPage-line {
+  padding: 16px 0;
 }
 .cartPage-title h1 {
   font-weight: bold;
   font-variant-caps: all-petite-caps;
   opacity: 0.8;
-}
-.cartPage-empty {
-  padding: 16px;
 }
 .cartPage-empty.hide {
   display: none;
