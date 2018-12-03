@@ -1,26 +1,26 @@
 import { createStore } from 'redux';
 import Immutable from 'immutable';
-import $ms from '../../helpers/Screens';
+import $con from '../../constants';
 
 import ActionTypes from './ActionTypes';
 import CartReducer from './Reducers/CartReducer';
 import ProductReducer from './Reducers/ProductReducer';
 
 function getWrapperClass(screen){
-  return screen > $ms.screens.lg ? 'container' : '';
+  return screen > $con.screenSize.lg ? 'container' : '';
 }
 
 function getScreen(iw){
   iw = iw || $(document).innerWidth();
   if(iw < 768)
-    return $ms.screens.sm;
+    return $con.screenSize.sm;
   else if(iw >= 768 && iw < 992)
-    return $ms.screens.md;
+    return $con.screenSize.md;
   else if(iw >= 992 && iw < 1200)
-    return $ms.screens.lg;
+    return $con.screenSize.lg;
   else if(iw >= 1200)
-    return $ms.screens.xl;
-  return $ms.screens.xl;
+    return $con.screenSize.xl;
+  return $con.screenSize.xl;
 }
 
 function getInitialState() {

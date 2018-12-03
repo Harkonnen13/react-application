@@ -4,7 +4,7 @@ import './Styles.less';
 
 import React, { Component } from 'react';
 
-import $ms from '../../helpers/Screens';
+import $con from '../../constants';
 
 import Navigation from '../Navigation';
 import Hamburger from '../Hamburger';
@@ -29,7 +29,7 @@ class Menu extends Component {
 
   render() {
     let hide = this.state.showButton ? '' : 'hide',
-        scrolled = (this.props.scrolled || this.props.screen < $ms.screens.xl) ?''  : 'no-scroll';
+        scrolled = (this.props.scrolled || this.props.screen < $con.screenSize.xl) ?''  : 'no-scroll';
     return (
       <div>
         <div className='menu'>
@@ -46,7 +46,7 @@ class Menu extends Component {
           <div className='menu-item'>
             <div className='col-12 font-weight-bold'>
             {
-              this.props.screen >= $ms.screens.md &&
+              this.props.screen >= $con.screenSize.md &&
                 <span className='menu-phone'>8 (800) 960-01-01</span>
             }
             </div>
@@ -74,7 +74,7 @@ class Menu extends Component {
         <div className={
           'menu-popup-menu' + (this.state.menuOpen &&this.state.showButton ? '' : ' hide')}>
           {
-              this.props.screen < $ms.screens.md &&
+              this.props.screen < $con.screenSize.md &&
               <span>8 (800) 960-01-01</span>
           }
           {
@@ -101,9 +101,9 @@ class Menu extends Component {
 
   getShowButton(props){
     switch(props.screen){
-      case $ms.screens.sm:
-      case $ms.screens.md:
-      case $ms.screens.lg:
+      case $con.screenSize.sm:
+      case $con.screenSize.md:
+      case $con.screenSize.lg:
         return true;
 
       default:
@@ -113,7 +113,7 @@ class Menu extends Component {
 
   getOrientation(props) {
     switch(props.screen){
-      case $ms.screens.sm:
+      case $con.screenSize.sm:
         return Navigation.orientations.column;
       default:
         return Navigation.orientations.row;

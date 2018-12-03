@@ -1,5 +1,5 @@
 export default { 
-  screens: {
+  screenSize: {
     sm: 0,
     md: 1,
     lg: 2,
