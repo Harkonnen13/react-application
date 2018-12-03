@@ -2,13 +2,11 @@ import 'bootstrap/dist/css/bootstrap.css';
 import './Styles.less';
 
 import React from 'react';
+import { connect } from 'react-redux';
+
 import MasterPage from '../_base/MasterPage';
 
 class AboutPage extends MasterPage {
-
-  constructor(props){
-    super(props);
-  }
 
   //#region Render methods
 
@@ -43,4 +41,12 @@ class AboutPage extends MasterPage {
   //#endregion Render methods
 }
 
-export default AboutPage;
+function mapStateToProps(state){
+  return {
+    scrolled: state.get('scrolled'),
+    screen: state.get('screen'),
+    wrapperClass: state.get('wrapperClass')
+  };
+}
+
+export default connect(mapStateToProps)(AboutPage);

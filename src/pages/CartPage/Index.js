@@ -1,7 +1,11 @@
 import 'bootstrap/dist/css/bootstrap.css';
 import './Styles.less';
 
+import ActionTypes from '../../logic/data/ActionTypes';
+
 import React from 'react';
+import { connect } from 'react-redux';
+
 import MasterPage from '../_base/MasterPage';
 import CartCard from '../../components/CartCard';
 import PaymentCard from '../../components/PaymentCard/Index';
@@ -50,4 +54,32 @@ class CartPage extends MasterPage {
   //#endregion Render methods
 }
 
-export default CartPage;
+function mapStateToProps(state){
+  return {
+    scrolled: state.get('scrolled'),
+    screen: state.get('screen'),
+    wrapperClass: state.get('wrapperClass'),
+    cart: state.get('cart')
+  };
+}
+
+function mapDispatchToProps(dispatch){
+  return {
+   deleteCartItem: (product) => 
+     dispatch({ 
+       type: ActionTypes.DELETE_CART_ITEM, 
+       payload: product
+     }),
+
+   updateCartItem: (product, count) =>
+     dispatch({ 
+       type: ActionTypes.UPDATE_CART_ITEM,
+       payload: {
+        item: product,
+        count: count
+       }
+     })
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(CartPage);

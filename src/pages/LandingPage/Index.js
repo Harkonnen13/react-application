@@ -2,6 +2,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import './Styles.less';
 
 import React from 'react';
+import { connect } from 'react-redux';
 import MasterPage from '../_base/MasterPage';
 
 class LandingPage extends MasterPage {
@@ -40,4 +41,12 @@ class LandingPage extends MasterPage {
   //#endregion Render methods
 }
 
-export default LandingPage;
+function mapStateToProps(state){
+  return {
+    scrolled: state.get('scrolled'),
+    screen: state.get('screen'),
+    wrapperClass: state.get('wrapperClass')
+  };
+}
+
+export default connect(mapStateToProps)(LandingPage);

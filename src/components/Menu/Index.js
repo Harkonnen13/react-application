@@ -4,7 +4,7 @@ import './Styles.less';
 
 import React, { Component } from 'react';
 
-import $ms from '../../helpers/MediaSelector';
+import $ms from '../../helpers/Screens';
 
 import Navigation from '../Navigation';
 import Hamburger from '../Hamburger';

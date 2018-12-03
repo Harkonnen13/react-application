@@ -1,7 +1,11 @@
 import 'bootstrap/dist/css/bootstrap.css';
 import './Styles.less';
 
+import ActionTypes from '../../logic/data/ActionTypes';
+
 import React from 'react';
+import { connect } from 'react-redux';
+
 import MasterPage from '../_base/MasterPage';
 import ProductList from '../../components/ProductList';
 import Spinner from '../../components/Spinner';
@@ -49,4 +53,40 @@ class ProductsPage extends MasterPage {
   //#endregion Render methods
 }
 
-export default ProductsPage;
+function mapStateToProps(state){
+  const ps = state.get('products');
+  return {
+    scrolled: state.get('scrolled'),
+    screen: state.get('screen'),
+    wrapperClass: state.get('wrapperClass'),
+
+    list: ps.list,
+    loaded: ps.loaded
+  };
+}
+
+function mapDispatchToProps(dispatch){
+  return { 
+    fetchProducts: href => {
+      dispatch({ 
+        type: ActionTypes.FETCH_PRODUCTS 
+      });
+  
+      $.getJSON(href).done(res => {
+          dispatch({ 
+              type: ActionTypes.RECEIVE_PRODUCTS, 
+              payload: res 
+          });
+      });
+    },
+
+    addCartItem: product => {
+      dispatch({ 
+        type: ActionTypes.ADD_CART_ITEM, 
+        payload: product 
+      })
+    }
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ProductsPage);

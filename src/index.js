@@ -1,48 +1,69 @@
 import './less/index.less';
 
 import React from 'react';
+import { Provider } from 'react-redux';
 import { render } from 'react-dom';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
-import './helpers/MediaSelector';
-import './helpers/ScrollWatcher';
+import AppStore from './logic/data/AppStore';
+import ActionTypes from './logic/data/ActionTypes';
 
 import ScrollToTop from './components/ScrollTotop';
 
-import AboutContainer from './logic/containers/AboutContainer';
-import LandingPageContainer from './logic/containers/LandingPageContainer';
-import ProductsContainer from './logic/containers/ProductsContainer';
-import CartContainer from './logic/containers/CartContainer';
+import LandingPage from './pages/LandingPage';
+import ProductsPage from './pages/ProductsPage';
+import CartPage from './pages/CartPage';
+import AboutPage from './pages/AboutPage';
+
+function onResize(e){
+  AppStore.dispatch({ 
+    type: ActionTypes.RESIZE,
+    payload: { 
+      innerHeight: e.currentTarget.innerHeight, 
+      innerWidth: e.currentTarget.innerWidth 
+    }
+  });
+}
+
+function onScroll(e){
+  if(e.target.scrollingElement)
+    AppStore.dispatch({ 
+      type: ActionTypes.SCROLL, 
+      payload: e.target.scrollingElement.scrollTop
+    });
+}
+
+$(document).ready(() => {
+  const w =  $(window);
+  w.resize(onResize);
+  w.scroll(onScroll);
+});
 
 render((
-<BrowserRouter>
-  <ScrollToTop>
-    <Switch>
-      <Route exact path='/' 
-             component={() => <LandingPageContainer/>}/>
-             
-      <Route path='/pizza/' 
-             component={() => <ProductsContainer title='Пицца'
-                                                 href='/store?type=pizza'/>}/>
-
-      <Route path='/pasta/' 
-             component={() => <ProductsContainer title='Паста'
-                                                 href='/store?type=pasta'/>}/>
-
-      <Route path='/drinks/' 
-             component={() => <ProductsContainer title='Напитки'
-                                                 href='/store?type=drinks'/>}/>
-
-      <Route path='/salad/' 
-             component={() => <ProductsContainer title='Салаты'
-                                                 href='/store?type=salad'/>}/>
-                                                 
-      <Route path='/about/' 
-             component={() => <AboutContainer/>}/>
-
-      <Route path='/cart/' 
-             component={() => <CartContainer/>}/>
-    </Switch>
-  </ScrollToTop>
-</BrowserRouter>
+<Provider store={AppStore}>
+  <BrowserRouter>
+    <ScrollToTop>
+      <Switch>
+        <Route exact path='/' 
+               component={LandingPage}/>
+        <Route path='/pizza/' 
+               component={() => <ProductsPage title='Пицца'
+                                              href='/store?type=pizza'/>}/>
+        <Route path='/pasta/' 
+               component={() => <ProductsPage title='Паста'
+                                              href='/store?type=pasta'/>}/>
+        <Route path='/drinks/' 
+               component={() => <ProductsPage title='Напитки'
+                                              href='/store?type=drinks'/>}/>
+        <Route path='/salad/' 
+               component={() => <ProductsPage title='Салаты'
+                                              href='/store?type=salad'/>}/>
+        <Route path='/cart/' 
+               component={CartPage}/> 
+        <Route path='/about/' 
+               component={AboutPage}/>
+      </Switch>
+    </ScrollToTop>
+  </BrowserRouter>
+</Provider>
 ), document.getElementById('root'));
