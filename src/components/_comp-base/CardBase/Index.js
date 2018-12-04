@@ -1,24 +1,17 @@
 import 'bootstrap/dist/css/bootstrap.css';
-import './Styles.less';
 
-import React, { PureComponent } from 'react';
+import React from 'react';
+import Base from '../ComponentBase';
 
-class CardBase extends PureComponent {
-  constructor(props){
-    super(props);
-  }
+class CardBase extends Base.PureComponentBase {
 
   renderCard = () =>{
 
   }
 
-  getColumns = () =>{
-    return '';
-  }
-
   render() {
     return (
-      <div className={`cardBase-wrapper ${this.getColumns()}`}>
+      <div className={`${this.className}-wrapper`}>
         {this.renderCard()}
       </div>
     );

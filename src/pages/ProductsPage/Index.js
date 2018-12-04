@@ -7,13 +7,11 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import MasterPage from '../_base/MasterPage';
-import ProductList from '../../components/ProductList';
+import List from '../../components/List';
+import ProductCard from '../../components/ProductCard';
 import Spinner from '../../components/Spinner';
 
 class ProductsPage extends MasterPage {
-  constructor(props){
-    super(props);
-  }
 
   componentDidMount(){
     this.props.fetchProducts(this.props.href);
@@ -21,8 +19,16 @@ class ProductsPage extends MasterPage {
 
   //#region Render methods
 
+  renderProduct = p => {
+    return(
+      <ProductCard product={p} 
+                   key={p.id} 
+                   addCartItem={this.props.addCartItem}/>
+    );
+  }
+
   renderContent = () => {
-    let loaded = this.props.loaded ? 'hide' : '';
+    const loaded = this.props.loaded ? 'hide' : '';
     return (
       <div className='productsPage-wrapper'>
         <div className={`productsPage ${this.props.wrapperClass}`}>
@@ -31,11 +37,9 @@ class ProductsPage extends MasterPage {
             <div style={{border: '1px solid gray'}}></div>
           </div>
           <div className='productsPage-list'>
-            <ProductList 
-              title={this.props.title}
-              list={this.props.list || []}
-              addCartItem={this.props.addCartItem}>
-            </ProductList>
+            <List itemModificator='col-12 col-sm-6 col-md-6 col-lg-4'>
+              {this.props.list.map(this.renderProduct)}
+            </List>
             <div className={`productsPage-loading ${loaded}`}>
               <Spinner></Spinner>
             </div>

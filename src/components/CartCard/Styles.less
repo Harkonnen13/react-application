@@ -5,6 +5,10 @@
     padding: 8px;
     .make-card(row, wrap, @main-item-color2);
 
+    &-wrapper{
+      width: 100%;
+    }
+
     &-img{
         .display-flex();
         .align-items(center);
@@ -21,8 +25,7 @@
         border-bottom: 0px;
         font-size: 24px;
         font-weight: bold;
-        opacity: 0.8;
-        @media (min-width: @screen-min) and (max-width: @screen-md-max){
+        @media (min-width: @screen-xs-max) and (max-width: @screen-md-max){
             font-size: 20px;
         }
     }
@@ -34,7 +37,6 @@
     &-ing{
         display: inline-block;
         font-weight: bold;
-        opacity: 0.8;
         padding-right: 4px;
 
         &:last-child::after{
@@ -53,7 +55,6 @@
     }
 
     &-price{
-        opacity: 0.8;
         font-weight: bold;
         line-height: 26px;
         font-size: 18px;

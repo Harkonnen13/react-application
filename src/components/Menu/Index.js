@@ -33,14 +33,14 @@ class Menu extends Component {
     return (
       <div>
         <div className='menu'>
-          <div className={`menu-item ${hide}`}>
+          <div className={`menu-item ${scrolled}`}>
             <Hamburger
                   hidden={!this.state.showButton}
                   checked={this.state.menuOpen}
                   onCheckedChanged={this.onButtonClick.bind(this)}>
             </Hamburger>
           </div>
-          <div className={`menu-item ${scrolled}`}>
+          <div className='menu-item'>
             <a href='/' className={`menu-logo ${scrolled}`}/>
           </div>
           <div className='menu-item'>
@@ -101,6 +101,7 @@ class Menu extends Component {
 
   getShowButton(props){
     switch(props.screen){
+      case $con.screenSize.xs:
       case $con.screenSize.sm:
       case $con.screenSize.md:
       case $con.screenSize.lg:
@@ -113,6 +114,7 @@ class Menu extends Component {
 
   getOrientation(props) {
     switch(props.screen){
+      case $con.screenSize.xs:
       case $con.screenSize.sm:
         return Navigation.orientations.column;
       default:

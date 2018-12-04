@@ -1,6 +1,6 @@
 @import '../../less/template.less';
 
-.productList{
+.list{
   .display-flex();
   .flex-direction(row);
   .flex-wrap(wrap);
@@ -11,5 +11,10 @@
     overflow: hidden;
     .flex-grow(1);
     .mix-transition(all, 1.0s, ease-in);
+  }
+
+  &-item{
+    padding: 8px;
+    .display-flex();
   }
 }

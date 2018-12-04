@@ -10,7 +10,7 @@ class CartCard extends CardBase {
   constructor(props){
     super(props);
     this.state = {
-        price: this.props.data.price * this.props.count
+      price: this.props.data.price * this.props.count
     };
   }
 

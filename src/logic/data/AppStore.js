@@ -7,12 +7,14 @@ import CartReducer from './Reducers/CartReducer';
 import ProductReducer from './Reducers/ProductReducer';
 
 function getWrapperClass(screen){
-  return screen > $con.screenSize.lg ? 'container' : '';
+  return screen > $con.screenSize.lg ? 'container' : 'container-fluid';
 }
 
 function getScreen(iw){
   iw = iw || $(document).innerWidth();
-  if(iw < 768)
+  if(iw < 576)
+    return $con.screenSize.xs;
+  else if(iw >= 576 && iw < 768) 
     return $con.screenSize.sm;
   else if(iw >= 768 && iw < 992)
     return $con.screenSize.md;

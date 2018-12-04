@@ -19,7 +19,6 @@
     line-height: 1.333334em;
     font-size: 36px;
     color: #fff;
-    opacity: 0.8;
     padding: 60px 0 0px 50%;
 
     & ul{
@@ -30,18 +29,23 @@
       @media (min-width: @screen-xs-max) and (max-width: @screen-md-max){         font-size: 20px; 
       }
 
-      @media (min-width: @screen-min) and (max-width: @screen-xs-max) {           font-size: 16px; 
+      @media (min-width: @screen-xs-max) and (max-width: @screen-xs-max) {           font-size: 16px; 
       }
     }
 
-    @media  (max-width: @screen-lg-min) {
+    @media (max-width: @screen-lg-min) {
       font-size: 24px;
       padding: 30px 32px 0px 50%;
     }
 
-    @media (max-width: @screen-md-max) {
+    @media (min-width: @screen-md-min) and (max-width: @screen-md-max) {
       font-size: 24px;
       padding: 60px 32px 0px 30%;
+    }
+
+    @media (max-width: @screen-sm-max) {
+      font-size: 24px;
+      padding: 30px 32px 0px 30%;
     }
 
     @media (orientation: portrait) and (max-width: @screen-xs-max) {
@@ -52,7 +56,6 @@
 
   &-text{
     clear: both;
-    opacity: 0.8;
     background-size: cover;
     background-position: top center;
     background: @main-bg-info-color;

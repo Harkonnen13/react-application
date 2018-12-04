@@ -9080,12 +9080,12 @@ a.text-dark:hover, a.text-dark:focus {
   background: url(/img/f185ac85898b873515fa2565b8ffc198.jpg) 50% 0 no-repeat;
   height: 850px;
 }
-@media (orientation: landscape) and (max-width: 1200px) {
+@media (orientation: landscape) and (max-width: 992px) {
   .landingPage-intro {
     background: url(/img/f185ac85898b873515fa2565b8ffc198.jpg) 41% 50% no-repeat;
   }
 }
-@media (orientation: portrait) and (max-width: 1200px) {
+@media (orientation: portrait) and (max-width: 992px) {
   .landingPage-intro {
     background: url(/img/f185ac85898b873515fa2565b8ffc198.jpg) 41% 0 no-repeat;
   }
@@ -9094,7 +9094,6 @@ a.text-dark:hover, a.text-dark:focus {
   line-height: 1.333334em;
   font-size: 36px;
   color: #fff;
-  opacity: 0.8;
   padding: 60px 0 0px 50%;
 }
 .landingPage-info ul {
@@ -9102,29 +9101,35 @@ a.text-dark:hover, a.text-dark:focus {
   font-size: 24px;
   padding-inline-start: 20px;
 }
-@media (min-width: 767px) and (max-width: 1199px) {
+@media (min-width: 575px) and (max-width: 991px) {
   .landingPage-info ul {
     font-size: 20px;
   }
 }
-@media (min-width: 320px) and (max-width: 767px) {
+@media (min-width: 575px) and (max-width: 575px) {
   .landingPage-info ul {
     font-size: 16px;
   }
 }
-@media (max-width: 1200px) {
+@media (max-width: 992px) {
   .landingPage-info {
     font-size: 24px;
     padding: 30px 32px 0px 50%;
   }
 }
-@media (max-width: 1199px) {
+@media (min-width: 768px) and (max-width: 991px) {
   .landingPage-info {
     font-size: 24px;
     padding: 60px 32px 0px 30%;
   }
 }
-@media (orientation: portrait) and (max-width: 767px) {
+@media (max-width: 767px) {
+  .landingPage-info {
+    font-size: 24px;
+    padding: 30px 32px 0px 30%;
+  }
+}
+@media (orientation: portrait) and (max-width: 575px) {
   .landingPage-info {
     font-size: 24px;
     padding: 30px 16px 0px 16px;
@@ -9132,7 +9137,6 @@ a.text-dark:hover, a.text-dark:focus {
 }
 .landingPage-text {
   clear: both;
-  opacity: 0.8;
   background-size: cover;
   background-position: top center;
   background: #cbccb3;
@@ -9146,9 +9150,9 @@ a.text-dark:hover, a.text-dark:focus {
   width: 100%;
   color: #b5b5b5;
 }
-@media (min-width: 320px) and (max-width: 1200px) {
+@media (min-width: 0px) and (max-width: 1199px) {
   .masterPage-header {
-    height: 58px;
+    height: 60px;
   }
 }
 .masterPage-wrapper {
@@ -9162,7 +9166,6 @@ a.text-dark:hover, a.text-dark:focus {
   box-shadow:  0px 3px 5px -1px rgba(0, 0, 0, 0.2),  0px 6px 10px 0px rgba(0, 0, 0, 0.14),  0px 1px 18px 0px rgba(0, 0, 0, 0.12);
 }
 .masterPage-menu {
-  padding: 16px 0;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: -ms-flex;
@@ -9173,10 +9176,13 @@ a.text-dark:hover, a.text-dark:focus {
   -webkit-flex-wrap: wrap;
   flex-wrap: wrap;
 }
+.masterPage-col {
+  padding: 0;
+}
 .masterPage-item {
   padding-right: 10px;
 }
-@media (min-width: 320px) and (max-width: 767px) {
+@media (min-width: 575px) and (max-width: 575px) {
   .masterPage-item {
     font-size: 14px;
   }
@@ -9193,7 +9199,7 @@ a.text-dark:hover, a.text-dark:focus {
   -webkit-justify-content: flex-end;
   justify-content: flex-end;
 }
-@media (min-width: 320px) and (max-width: 767px) {
+@media (min-width: 0px) and (max-width: 575px) {
   .masterPage-links {
     padding: 16px 0;
     justify-content: center;
@@ -9203,7 +9209,7 @@ a.text-dark:hover, a.text-dark:focus {
   padding-top: 30px;
   text-align: end;
 }
-@media (min-width: 320px) and (max-width: 767px) {
+@media (min-width: 0px) and (max-width: 575px) {
   .masterPage-copyrates {
     padding-top: 0;
     text-align: center;
@@ -9212,12 +9218,14 @@ a.text-dark:hover, a.text-dark:focus {
 .masterPage-footer {
   color: #b5b5b5;
   background: #1e2028;
+  padding: 16px 0;
 }
 
 .basePage {
   min-width: 320px;
   min-height: 101vh;
   background: #f0f0f0;
+  color: #4a4e51;
   overflow: hidden;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -9264,6 +9272,14 @@ a.text-dark:hover, a.text-dark:focus {
   -ms-transition: all 0.25s ease-in;
   transition: all 0.25s ease-in;
 }
+.menu-item:first-child {
+  min-width: 0;
+  padding-right: 15px;
+}
+.menu-item:first-child.no-scroll {
+  padding-right: 0;
+  width: 0;
+}
 .menu-item:nth-child(2) {
   -webkit-justify-content: flex-start;
   justify-content: flex-start;
@@ -9273,13 +9289,9 @@ a.text-dark:hover, a.text-dark:focus {
   -ms-flex-grow: 1;
   flex-grow: 1;
 }
-.menu-item.no-scroll {
-  height: 90px;
-  width: 90px;
-}
-.menu-item.hide {
+.menu-item:nth-child(5) {
   min-width: 0;
-  width: 0;
+  padding-left: 15px;
 }
 .menu-logo {
   width: 60px;
@@ -9294,6 +9306,7 @@ a.text-dark:hover, a.text-dark:focus {
 .menu-logo.no-scroll {
   height: 90px;
   width: 90px;
+  margin-left: -24px;
 }
 .menu-phone:hover {
   color: #efcfa2;
@@ -9441,14 +9454,14 @@ a.text-dark:hover, a.text-dark:focus {
   flex-direction: column;
 }
 .productsPage-title {
-  padding: 16px;
+  padding: 16px 0;
 }
 .productsPage-title h1 {
   font-weight: bold;
   font-variant-caps: all-petite-caps;
-  opacity: 0.8;
 }
 .productsPage-list {
+  margin: 0 -8px;
   min-height: 100px;
   position: relative;
   display: -webkit-flex;
@@ -9479,15 +9492,14 @@ a.text-dark:hover, a.text-dark:focus {
 }
 .productsPage-info {
   background: #cbccb3;
-  padding: 16px;
+  padding: 16px 0;
 }
 .productsPage-text {
   clear: both;
-  opacity: 0.8;
   font-size: 16px;
 }
 
-.productList {
+.list {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: -ms-flex;
@@ -9500,7 +9512,7 @@ a.text-dark:hover, a.text-dark:focus {
   -webkit-justify-content: flex-start;
   justify-content: flex-start;
 }
-.productList-wrapper {
+.list-wrapper {
   padding-bottom: 20px;
   overflow: hidden;
   -webkit-flex-grow: 1;
@@ -9511,6 +9523,13 @@ a.text-dark:hover, a.text-dark:focus {
   -o-transition: all 1s ease-in;
   -ms-transition: all 1s ease-in;
   transition: all 1s ease-in;
+}
+.list-item {
+  padding: 8px;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: -ms-flex;
+  display: flex;
 }
 
 .productCard {
@@ -9540,15 +9559,17 @@ a.text-dark:hover, a.text-dark:focus {
   -moz-box-shadow:  0px 7px 8px -4px rgba(0, 0, 0, 0.2),  0px 12px 17px 2px rgba(0, 0, 0, 0.14),  0px 5px 22px 4px rgba(0, 0, 0, 0.12);
   box-shadow:  0px 7px 8px -4px rgba(0, 0, 0, 0.2),  0px 12px 17px 2px rgba(0, 0, 0, 0.14),  0px 5px 22px 4px rgba(0, 0, 0, 0.12);
 }
+.productCard-wrapper {
+  width: 100%;
+}
 .productCard-title {
   background: transparent;
   border-bottom: 0px;
   font-size: 24px;
   font-weight: bold;
-  opacity: 0.8;
   text-align: center;
 }
-@media (min-width: 320px) and (max-width: 1199px) {
+@media (min-width: 575px) and (max-width: 991px) {
   .productCard-title {
     font-size: 20px;
   }
@@ -9583,7 +9604,6 @@ a.text-dark:hover, a.text-dark:focus {
 .productCard-ing {
   display: block;
   font-weight: bold;
-  opacity: 0.8;
   padding-right: 4px;
 }
 .productCard-ing:last-child::after {
@@ -9606,7 +9626,6 @@ a.text-dark:hover, a.text-dark:focus {
   flex-direction: column;
 }
 .productCard-price {
-  opacity: 0.8;
   line-height: 26px;
   font-size: 26px;
   font-weight: bold;
@@ -9638,10 +9657,6 @@ a.text-dark:hover, a.text-dark:focus {
 }
 .productCard-button:focus {
   color: white;
-}
-
-.cardBase-wrapper {
-  padding-bottom: 16px;
 }
 
 .tag {
@@ -9796,7 +9811,6 @@ a.text-dark:hover, a.text-dark:focus {
 .cartPage-title h1 {
   font-weight: bold;
   font-variant-caps: all-petite-caps;
-  opacity: 0.8;
 }
 .cartPage-empty.hide {
   display: none;
@@ -9821,7 +9835,7 @@ a.text-dark:hover, a.text-dark:focus {
   padding-left: 0;
   padding-right: 0;
 }
-@media (min-width: 1200px) {
+@media (min-width: 992px) {
   .cartPage-payment {
     padding-left: 16px;
   }
@@ -9855,6 +9869,9 @@ a.text-dark:hover, a.text-dark:focus {
   -moz-box-shadow:  0px 7px 8px -4px rgba(0, 0, 0, 0.2),  0px 12px 17px 2px rgba(0, 0, 0, 0.14),  0px 5px 22px 4px rgba(0, 0, 0, 0.12);
   box-shadow:  0px 7px 8px -4px rgba(0, 0, 0, 0.2),  0px 12px 17px 2px rgba(0, 0, 0, 0.14),  0px 5px 22px 4px rgba(0, 0, 0, 0.12);
 }
+.cartCard-wrapper {
+  width: 100%;
+}
 .cartCard-img {
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -9879,9 +9896,8 @@ a.text-dark:hover, a.text-dark:focus {
   border-bottom: 0px;
   font-size: 24px;
   font-weight: bold;
-  opacity: 0.8;
 }
-@media (min-width: 320px) and (max-width: 1199px) {
+@media (min-width: 575px) and (max-width: 991px) {
   .cartCard-title {
     font-size: 20px;
   }
@@ -9892,7 +9908,6 @@ a.text-dark:hover, a.text-dark:focus {
 .cartCard-ing {
   display: inline-block;
   font-weight: bold;
-  opacity: 0.8;
   padding-right: 4px;
 }
 .cartCard-ing:last-child::after {
@@ -9911,7 +9926,6 @@ a.text-dark:hover, a.text-dark:focus {
   align-items: center;
 }
 .cartCard-price {
-  opacity: 0.8;
   font-weight: bold;
   line-height: 26px;
   font-size: 18px;
@@ -9951,7 +9965,6 @@ a.text-dark:hover, a.text-dark:focus {
   font-size: 20px;
   cursor: pointer;
   text-align: center;
-  opacity: 0.8;
   -webkit-transition: all 0.25s ease-in;
   -moz-transition: all 0.25s ease-in;
   -o-transition: all 0.25s ease-in;
@@ -9967,7 +9980,6 @@ a.text-dark:hover, a.text-dark:focus {
 }
 .valueSelector-plus:hover,
 .valueSelector-minus:hover {
-  opacity: 0.8;
   background-color: #1e2028;
   color: #fff;
 }
@@ -9980,7 +9992,6 @@ a.text-dark:hover, a.text-dark:focus {
   text-align: center;
   font-size: 18px;
   font-weight: bold;
-  opacity: 0.8;
 }
 
 .paymentCard {
@@ -10088,15 +10099,13 @@ a.text-dark:hover, a.text-dark:focus {
   flex-grow: 1;
 }
 .aboutPage-title {
-  padding: 16px;
+  padding: 16px 0;
 }
 .aboutPage-title h1 {
   font-weight: bold;
   font-variant-caps: all-petite-caps;
-  opacity: 0.8;
 }
 .aboutPage-text {
-  padding: 16px;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: -ms-flex;

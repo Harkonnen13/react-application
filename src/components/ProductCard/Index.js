@@ -16,10 +16,6 @@ class ProductCard extends CardBase {
     this.props.addCartItem(this.props.product);
   }
 
-  getColumns = () =>{
-    return 'col-12 col-sm-6 col-md-6 col-lg-4';
-  }
-
   renderCard = () => {
     const ings = this.props.product.ing.map(i => <li className='productCard-ing' key={i}>{i}</li>);
     const tags = 

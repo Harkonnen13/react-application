@@ -4,7 +4,7 @@ import ActionTypes from '../ActionTypes';
 function getInitialState(){
   return { 
     loaded: false, 
-    products: [] 
+    list: [] 
   };
 }
 
