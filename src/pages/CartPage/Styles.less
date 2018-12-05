@@ -4,11 +4,8 @@
   padding: 0 16px;
   .flex-grow(1);
 
-  &-line{
-    padding: 16px 0;
-  }
-
   &-title{
+    padding: 16px 0;
     & h1{
       font-weight: bold;
       font-variant-caps: all-petite-caps;
@@ -29,15 +26,25 @@
   }
 
   &-list{
-    padding-left: 0;
-    padding-right: 0;
+    padding: 0;
+  }
+
+  &-card{
+    padding: 0px 0 16px 0;
+    width: 100%;
+    .display-flex();
+    &:first-child{
+      padding-top: 8px;
+    }
   }
 
   &-payment{
     padding-left: 0;
     padding-right: 0;
+    height: 100%;
     @media (min-width: @screen-lg-min) {
       padding-left: 16px;
+      padding-top: 8px;
     }
   }
 }

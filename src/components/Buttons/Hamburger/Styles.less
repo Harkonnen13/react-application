@@ -1,0 +1,66 @@
+@import '../../../less/template.less';
+
+.hamburger {
+  display: inline-block;
+  cursor: pointer;
+
+  &-bar1 {
+    background-color: @menu-light-text-color;
+    height: 5px;
+    margin: 6px 0;
+    transition: 0.4s;
+    width: 35px;
+
+    &.hover{
+      background-color: @main-link-hover-color;
+    }
+
+    &.change{
+      .mix-transform(rotate(-45deg) translate(-9px, 6px));
+    }
+    
+    &.hide{
+      width:0px;
+    }
+  } 
+
+  &-bar2 {
+    background-color: @menu-light-text-color;
+    height: 5px;
+    margin: 6px 0;
+    transition: 0.4s;
+    width: 35px;
+
+    &.hover{
+      background-color: @main-link-hover-color;
+    }
+
+    &.change{
+      opacity: 0; 
+    }
+
+    &.hide{
+      width:0px;
+    }
+  } 
+
+  &-bar3 {
+    background-color: @menu-light-text-color;
+    height: 5px;
+    margin: 6px 0;
+    transition: 0.4s;
+    width: 35px;
+
+    &.hover{
+      background-color: @main-link-hover-color;
+    }
+
+    &.change{
+      .mix-transform(rotate(45deg) translate(-8px, -8px));
+    }
+
+    &.hide{
+      width:0px;
+    }
+  }
+}

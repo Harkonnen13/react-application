@@ -37,7 +37,8 @@ class ProductsPage extends MasterPage {
             <div style={{border: '1px solid gray'}}></div>
           </div>
           <div className='productsPage-list'>
-            <List itemModificator='col-12 col-sm-6 col-md-6 col-lg-4'>
+            <List justifyContent={true} 
+                  itemModificator='productsPage-card col-12 col-sm-6 col-md-6 col-lg-4'>
               {this.props.list.map(this.renderProduct)}
             </List>
             <div className={`productsPage-loading ${loaded}`}>

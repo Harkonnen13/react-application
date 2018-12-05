@@ -1,9 +1,10 @@
-import 'bootstrap/dist/css/bootstrap.css';
 import './Styles.less';
 
-import React, { Component } from 'react';
+import React from 'react';
+import Base from '../../_comp-base/ComponentBase';
 
-class Hamburger extends Component {
+class Hamburger extends Base.PureComponentBase {
+  
   constructor(props){
     super(props);
     this.root = React.createRef();
@@ -35,13 +36,15 @@ class Hamburger extends Component {
     let checked = this.state.checked ? 'change' : '',
         hover = this.state.hover ? 'hover' : '';
     return (
-      <div className='hamburger' 
+      <div className={`${this.className} ${this.props.className || ''}`}
+           style={this.props.style || {}} 
            onMouseOver={this.onMouseOver} 
            onMouseLeave={this.onMouseLeave}
-           onClick={this.onClick}>
-          <div className={`hamburger-bar1 ${hover} ${checked}`}></div>
-          <div className={`hamburger-bar2 ${hover} ${checked}`}></div>
-          <div className={`hamburger-bar3 ${hover} ${checked}`}></div>
+           onClick={this.onClick}
+           hidden={this.state.hidden}>
+          <div className={`${this.className}-bar1 ${hover} ${checked}`}></div>
+          <div className={`${this.className}-bar2 ${hover} ${checked}`}></div>
+          <div className={`${this.className}-bar3 ${hover} ${checked}`}></div>
       </div>
     );
   }

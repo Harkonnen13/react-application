@@ -2,19 +2,24 @@
 
 .list{
   .display-flex();
-  .flex-direction(row);
   .flex-wrap(wrap);
   .justify-content(flex-start);
   
   &-wrapper{
-    padding-bottom: 20px;
+    width: 100%;
     overflow: hidden;
-    .flex-grow(1);
-    .mix-transition(all, 1.0s, ease-in);
+    .mix-transition(height, 1.0s, ease-in);
+  }
+
+  &-row{
+    .flex-direction(row);
+  }
+
+  &-column{
+    .flex-direction(column);
   }
 
   &-item{
-    padding: 8px;
-    .display-flex();
+    position: relative;
   }
 }

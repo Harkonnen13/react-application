@@ -11,7 +11,7 @@ class CardBase extends Base.PureComponentBase {
 
   render() {
     return (
-      <div className={`${this.className}-wrapper`}>
+      <div className={`${this.className}-wrapper ${this.props.className || ''}`}>
         {this.renderCard()}
       </div>
     );

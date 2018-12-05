@@ -8,7 +8,7 @@ class ComponentBase extends Component {
 
   constructor(props){
     super(props);
-    this.className = props.className || normalize(this.constructor.name);
+    this.className = normalize(this.constructor.name);
   }
 
   render() {
@@ -20,7 +20,7 @@ class PureComponentBase extends PureComponent {
 
   constructor(props){
     super(props);
-    this.className = props.className || normalize(this.constructor.name);
+    this.className = normalize(this.constructor.name);
   }
 
   render() {
