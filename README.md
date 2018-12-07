@@ -1,10 +1,10 @@
 # react-application
 test react application
 
-Тестовый проект на React.
+Тестовый проект на react/redux.
 Все совпадения в названиях случайны.
-Используются React.js, Webpack, Bootstrap, Less, JQuery, react-routing, Redux, Immutable.
-Кроссбраузерная и адаптивная верстка, анимации, миксины.
+Используются react, react-routing, redux, immutable ,webpack, bootstrap(css), less, jquery.
+Простая локализация, кроссбраузерная и адаптивная верстка, анимации, миксины.
 
 Для запуска необходим Node.js, npm.
 Билдается с помощью команды npm run build.
