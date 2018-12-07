@@ -2,6 +2,7 @@
   "main.css": "/css/main.css",
   "main.js": "/js/main.js",
   "./index.html": "/./index.html",
+  "img/Styles.less": "/img/f185ac85898b873515fa2565b8ffc198.jpg",
   "img/248d791afc27dfd33d60e9356468522c.png": "/img/248d791afc27dfd33d60e9356468522c.png",
   "img/3c89f0fce082f0302bc28982e6e53d6e.png": "/img/3c89f0fce082f0302bc28982e6e53d6e.png",
   "img/53ffc0ab886e7ad002eff2fa96bf80eb.png": "/img/53ffc0ab886e7ad002eff2fa96bf80eb.png",
@@ -14,7 +15,6 @@
   "img/d7f7f2d90e33395b1de328c9c1a7699f.png": "/img/d7f7f2d90e33395b1de328c9c1a7699f.png",
   "img/ee6743c3d86a15fb5805008d1344de40.png": "/img/ee6743c3d86a15fb5805008d1344de40.png",
   "img/ef72d6483749da7c20eac78f449851bf.png": "/img/ef72d6483749da7c20eac78f449851bf.png",
-  "img/Styles.less": "/img/f4a396f5e2298ce5297b3b167bbf9337.png",
   "img/f425b7ceae552bac32e3e22d465d080c.png": "/img/f425b7ceae552bac32e3e22d465d080c.png",
   "img/f916055c9f7747cbdcd277cf1cd62ee4.png": "/img/f916055c9f7747cbdcd277cf1cd62ee4.png"
 }

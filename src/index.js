@@ -1,14 +1,17 @@
 import './less/index.less';
+import $ from 'jquery';
 
 import React from 'react';
 import { Provider } from 'react-redux';
 import { render } from 'react-dom';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { Router, Route, Switch } from 'react-router-dom';
 
+import ScrollToTop from './components/_comp-router/ScrollTotop';
+import PropsRoute from './components/_comp-router/PropsRoute';
+
+import AppHistory from './logic/data/AppHistory';
 import AppStore from './logic/data/AppStore';
 import ActionTypes from './logic/data/ActionTypes';
-
-import ScrollToTop from './components/ScrollTotop';
 
 import LandingPage from './pages/LandingPage';
 import ProductsPage from './pages/ProductsPage';
@@ -33,6 +36,15 @@ function onScroll(e){
     });
 }
 
+function locationChanged(location){
+  AppStore.dispatch({
+    type: ActionTypes.LOCATION_CHANGED,
+    payload: location
+  });
+}
+
+AppHistory.listen(locationChanged);
+
 $(document).ready(() => {
   const w =  $(window);
   w.resize(onResize);
@@ -41,29 +53,32 @@ $(document).ready(() => {
 
 render((
 <Provider store={AppStore}>
-  <BrowserRouter>
+  <Router history={AppHistory}>
     <ScrollToTop>
       <Switch>
         <Route exact path='/' 
                component={LandingPage}/>
-        <Route path='/pizza/' 
-               component={() => <ProductsPage title='Пицца'
-                                              href='/store?type=pizza'/>}/>
-        <Route path='/pasta/' 
-               component={() => <ProductsPage title='Паста'
-                                              href='/store?type=pasta'/>}/>
-        <Route path='/drinks/' 
-               component={() => <ProductsPage title='Напитки'
-                                              href='/store?type=drinks'/>}/>
-        <Route path='/salad/' 
-               component={() => <ProductsPage title='Салаты'
-                                              href='/store?type=salad'/>}/>
+
+        <PropsRoute path='/pizza/'
+                    component={ProductsPage}
+                    prodtype='pizza'/>
+        <PropsRoute path='/pasta/'
+                    component={ProductsPage}
+                    prodtype='pasta'/>
+        <PropsRoute path='/salad/'
+                    component={ProductsPage}
+                    prodtype='salad'/>
+        <PropsRoute path='/drinks/'
+                    component={ProductsPage}
+                    prodtype='drinks'/>
+
         <Route path='/cart/' 
-               component={CartPage}/> 
+               component={CartPage}/>
+
         <Route path='/about/' 
                component={AboutPage}/>
       </Switch>
     </ScrollToTop>
-  </BrowserRouter>
+  </Router>
 </Provider>
 ), document.getElementById('root'));

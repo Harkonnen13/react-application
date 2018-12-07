@@ -1,15 +1,25 @@
 import { createStore } from 'redux';
 import Immutable from 'immutable';
+import $ from 'jquery';
 import $con from '../../constants';
 
 import ActionTypes from './ActionTypes';
-import CartReducer from './Reducers/CartReducer';
-import ProductReducer from './Reducers/ProductReducer';
+import CartReducer from './reducers/CartReducer';
+import ProductReducer from './reducers/ProductReducer';
+import LocalizationReducer from './reducers/LocalizationReducer';
 
+/**
+ * Get wrapper class of main containers (header, footer, content)
+ * @param {number} screen 
+ */
 function getWrapperClass(screen){
   return screen > $con.screenSize.lg ? 'container' : 'container-fluid';
 }
 
+/**
+ * Get screen size
+ * @param {number} iw 
+ */
 function getScreen(iw){
   iw = iw || $(document).innerWidth();
   if(iw < 576)
@@ -25,21 +35,33 @@ function getScreen(iw){
   return $con.screenSize.xl;
 }
 
+/**
+ * Get initial App state
+ */
 function getInitialState() {
   let doc = $(document),
       screen = getScreen(doc.innerWidth());
-  return Immutable.Map({ 
+  return Immutable.Map({
     scrolled: false,
     screen: screen,
     wrapperClass: getWrapperClass(screen),
+    local: LocalizationReducer.getInitialState(),
 
     products: ProductReducer.getInitialState(),
     cart: CartReducer.getInitialState()
   });
 }
 
+/**
+ * Main reducer for app data
+ * @param {Immutable} state 
+ * @param {{type, payload}} action 
+ */
 function reducer(state, action) {
   switch (action.type) {
+    case ActionTypes.LOCATION_CHANGED:
+      
+      return state;
     case ActionTypes.SCROLL:
       return state
         .update('scrolled', () => action.payload > 40);
@@ -48,7 +70,10 @@ function reducer(state, action) {
       return state
         .update('screen', () => screen)
         .update('wrapperClass', () => getWrapperClass(screen));
-    
+        
+    case ActionTypes.LANG_CHANGED:
+      return state.update('local', l => LocalizationReducer.reducer(l, action));
+
     case ActionTypes.FETCH_PRODUCTS:
     case ActionTypes.RECEIVE_PRODUCTS:
       return state.update('products', ps => ProductReducer.reducer(ps, action));

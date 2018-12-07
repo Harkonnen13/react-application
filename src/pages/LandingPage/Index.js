@@ -3,11 +3,26 @@ import './Styles.less';
 
 import React from 'react';
 import { connect } from 'react-redux';
-import MasterPage from '../_base/MasterPage';
+import MasterPage, { 
+  mapCommonProps, 
+  mapCommonDispatch 
+} from '../_base/MasterPage';
 
 class LandingPage extends MasterPage {
 
   //#region Render methods
+
+  renderHint(hint, idx){
+    return (
+      <li key={idx}>{hint}</li>
+    );
+  }
+
+  renderPost(post, idx){
+    return (
+      <p key={idx}>{post}</p>
+    );
+  }
 
   renderContent = () => {
     return (
@@ -16,21 +31,23 @@ class LandingPage extends MasterPage {
           <div className='landingPage-intro'>
             <div className='landingPage-info'>
               <div className='landingPage-title'>
-                <span className='font-weight-bold'>Pizza Logo</span> — мы делаем пиццу более 12 лет, постоянно следим за её качеством и придумываем новые оригинальные рецепты!
+                <span className='font-weight-bold'>Pizza Logo</span>
+                {` — ${this.props.localization.landingPage.title}`} 
               </div>
               <ul>
-                <li>Специальные рецепты от шеф-повара!</li>
-                <li>Акции и праздничные скидки!</li>
-                <li>Контроль качества и отличный сервис!</li>
+                {this.props.localization.landingPage.hints.map(this.renderHint)}
               </ul>
             </div>
           </div>
           <div className='landingPage-text'>
             <div className='container'>
-        	    <div className='h2'>Доставка пиццы по городу Москве.</div>
-        		  <p>Делаем пиццу более 12 лет, постоянно следим за её качеством и придумываем новые оригинальные рецепты. В нашем меню 27 видов   пиццы, и мы не собираемся останавливаться!</p>
-              <p>Используем только самые свежие продукты от поставщиков, которым доверяем. В нашей пицце и других блюдах нет размороженных полуфабрикатов.
-              </p>
+              <div className='h2'>
+                {this.props.localization.landingPage.info.title}
+              </div>
+              {
+                this.props.localization.landingPage
+                  .info.posts.map(this.renderPost)
+              }
               </div>
             </div>
         </div>
@@ -41,12 +58,13 @@ class LandingPage extends MasterPage {
   //#endregion Render methods
 }
 
+
 function mapStateToProps(state){
-  return {
-    scrolled: state.get('scrolled'),
-    screen: state.get('screen'),
-    wrapperClass: state.get('wrapperClass')
-  };
+  return mapCommonProps({}, state);
 }
 
-export default connect(mapStateToProps)(LandingPage);
+function mapDispatchToProps(dispatch){
+  return mapCommonDispatch({}, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(LandingPage);

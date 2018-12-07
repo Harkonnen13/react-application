@@ -2,16 +2,11 @@ import 'bootstrap/dist/css/bootstrap.css';
 import './Styles.less';
 
 import React, { Component } from 'react';
-import ComponentBase from '../../../components/_comp-base/ComponentBase';
 
 /**
  * Base page class with base rendering methods
  */
 class BasePage extends Component {
-
-  constructor(props){
-    super(props);
-  }
 
   //#region Component override
   

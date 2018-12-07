@@ -1,5 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.css';
 import './Styles.less';
+import $ from 'jquery';
 
 import React, { PureComponent } from 'react';
 

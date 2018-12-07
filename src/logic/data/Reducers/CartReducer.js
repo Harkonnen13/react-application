@@ -1,9 +1,14 @@
 import ActionTypes from '../ActionTypes';
 
+const key = 'lp-cart';
+
+/**
+ * Get cart data from sessionStorage (or create new one)
+ */
 function getCart() {
   let newCart = {};
   try{
-      let cart = JSON.parse(window.sessionStorage.getItem('lp-cart'));
+      let cart = JSON.parse(window.sessionStorage.getItem(key));
       if(!cart){
           cart = newCart;
           setCart(cart);
@@ -16,10 +21,18 @@ function getCart() {
   }
 }
 
+/**
+ * Set cart data to sessionStorage
+ */
 function setCart(cart) {
-  window.sessionStorage.setItem('lp-cart', JSON.stringify(cart));
+  window.sessionStorage.setItem(key, JSON.stringify(cart));
 }
 
+/**
+ * Reducer for cart data (using sessionStorage)
+ * @param {*} state 
+ * @param {{type, payload}} action 
+ */
 function reducer(state, action) {
   switch (action.type) {
       

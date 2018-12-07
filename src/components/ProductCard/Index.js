@@ -1,5 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.css';
 import './Styles.less';
+import $ from 'jquery';
 
 import React from 'react';
 import CardBase from '../_comp-base/CardBase';
@@ -9,21 +10,36 @@ import ImageBox from '../ImageBox';
 class ProductCard extends CardBase {
   constructor(props){
     super(props);
-    this.id = 'productCard-' + this.props.product.id;
+    this.card = React.createRef();
   }
 
   onAddToCart = () => {
     this.props.addCartItem(this.props.product);
   }
 
-  renderCard = () => {
-    const ings = this.props.product.ing.map(i => <li className='productCard-ing' key={i}>{i}</li>);
-    const tags = 
-      this.props.product.tag.map(i => <Tag key={i} name={i}></Tag>);
+  renderIng(ing, idx){
     return (
-      <div className='productCard card'>
+      <li className='productCard-ing' key={idx}>{ing}</li>
+    )
+  }
+
+  renderTag(tag, idx){
+    return (
+      <Tag key={idx} name={tag}/>
+    )
+  }
+
+  componentDidMount(){
+    requestAnimationFrame(() => {
+      $(this.card.current).removeClass('productCard-hide');
+    });
+  }
+
+  renderCard = () => {
+    return (
+      <div ref={this.card} className='productCard card productCard-hide'>
           <div className='productCard-tags'>
-            {tags}
+            {this.props.product.tag.map(this.renderTag)}
           </div>
           <div className='productCard-body card-body'>
             <ImageBox src={this.props.product.src}></ImageBox>
@@ -32,7 +48,7 @@ class ProductCard extends CardBase {
             </div>
             <div className='flex-grow-1'>
               <ul className='productCard-ings'>
-                {ings}
+                {this.props.product.ing.map(this.renderIng)}
               </ul>
             </div>
             <div className='productCard-panel'>
@@ -41,7 +57,7 @@ class ProductCard extends CardBase {
                 </div>
                 <button className='productCard-button btn btn-dark' 
                         onClick={this.onAddToCart}>
-                        В корзину
+                        {this.props.addButtonTitle || 'Add'}
                 </button>
             </div>
           </div>

@@ -1,20 +1,37 @@
 import 'bootstrap/dist/css/bootstrap.css';
 import './Styles.less';
+import $ from 'jquery';
 
 import ActionTypes from '../../logic/data/ActionTypes';
 
 import React from 'react';
 import { connect } from 'react-redux';
 
-import MasterPage from '../_base/MasterPage';
+import MasterPage, { 
+  mapCommonProps, 
+  mapCommonDispatch 
+} from '../_base/MasterPage';
+
 import List from '../../components/List';
 import ProductCard from '../../components/ProductCard';
 import Spinner from '../../components/Spinner';
+import PageTitle from '../../components/PageTitle';
 
 class ProductsPage extends MasterPage {
-
+  
   componentDidMount(){
-    this.props.fetchProducts(this.props.href);
+    this.fetchProducts(this.props.prodtype);
+  }
+
+  componentDidUpdate(prevProps){
+    if(this.props.prodtype !== prevProps.prodtype || 
+       this.props.lang !== prevProps.lang)
+       this.fetchProducts(this.props.prodtype);
+  }
+
+  fetchProducts = (type) => {
+    const lng = this.props.localization.getLanguage();
+    this.props.fetchProducts(`/store?type=${type}`, lng);
   }
 
   //#region Render methods
@@ -22,33 +39,36 @@ class ProductsPage extends MasterPage {
   renderProduct = p => {
     return(
       <ProductCard product={p} 
-                   key={p.id} 
+                   key={p.id}
+                   addButtonTitle={this.props.localization.buttons.toCart}
                    addCartItem={this.props.addCartItem}/>
     );
   }
 
   renderContent = () => {
-    const loaded = this.props.loaded ? 'hide' : '';
+    const downloaded = this.props.downloaded ? 'hide' : '';
     return (
       <div className='productsPage-wrapper'>
         <div className={`productsPage ${this.props.wrapperClass}`}>
-          <div className='productsPage-title'>
-            <h1>{this.props.title || 'Title'}</h1>
-            <div style={{border: '1px solid gray'}}></div>
-          </div>
-          <div className='productsPage-list'>
-            <List justifyContent={true} 
+          <PageTitle className='productsPage-title'>
+            {this.props.localization.productsPage.title[this.props.prodtype]}
+          </PageTitle>
+          <div className='productsPage-body'>
+            <List justifyContent 
+                  className='productsPage-list'
                   itemModificator='productsPage-card col-12 col-sm-6 col-md-6 col-lg-4'>
               {this.props.list.map(this.renderProduct)}
             </List>
-            <div className={`productsPage-loading ${loaded}`}>
+            <div className={`productsPage-loading ${downloaded}`}>
               <Spinner></Spinner>
             </div>
           </div>
         </div>
         <div className='productsPage-info'>
           <div className={`productsPage-text ${this.props.wrapperClass}`}>
-            <p>Готовим восхитительное тесто для основы и не экономим на     ингредиентах и топингах! Именно поэтому наши пиццы тяжелее и   отличаются очень насыщенным вкусом!</p>
+            <p>
+              {this.props.localization.productsPage.info[this.props.prodtype]}
+            </p>
           </div>
         </div>
       </div>
@@ -60,24 +80,21 @@ class ProductsPage extends MasterPage {
 
 function mapStateToProps(state){
   const ps = state.get('products');
-  return {
-    scrolled: state.get('scrolled'),
-    screen: state.get('screen'),
-    wrapperClass: state.get('wrapperClass'),
-
-    list: ps.list,
-    loaded: ps.loaded
-  };
+  return mapCommonProps({
+    list: ps.get('list'),
+    downloaded: ps.get('downloaded')
+  }, state);
 }
 
 function mapDispatchToProps(dispatch){
-  return { 
-    fetchProducts: href => {
+  return mapCommonDispatch({ 
+    fetchProducts: (href, lng) => {
       dispatch({ 
-        type: ActionTypes.FETCH_PRODUCTS 
+        type: ActionTypes.FETCH_PRODUCTS,
+        payload: href
       });
   
-      $.getJSON(href).done(res => {
+      $.getJSON(href, { lng: lng }).done(res => {
           dispatch({ 
               type: ActionTypes.RECEIVE_PRODUCTS, 
               payload: res 
@@ -90,8 +107,8 @@ function mapDispatchToProps(dispatch){
         type: ActionTypes.ADD_CART_ITEM, 
         payload: product 
       })
-    }
-  };
+    },
+  }, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProductsPage);

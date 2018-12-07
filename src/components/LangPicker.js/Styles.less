@@ -1,0 +1,64 @@
+@import '../../less/template.less';
+
+.langPicker{
+  cursor: pointer;
+  width: 60px;
+  position: relative;
+
+  &:hover{
+    background: #b5b5b5;
+    color: initial;
+  }
+
+  &-menu{
+    width: inherit;
+    background: inherit;
+    position: absolute;
+    z-index: 1000;
+  }
+
+  &-menu-hide{
+    display: none;
+  }
+
+  &-item{
+    padding: 8px;
+    .display-flex();
+    .align-items(center);
+    &:hover{
+      background: @main-link-hover-color;
+    }
+  }
+
+  &-item-hover{
+    padding: 8px;
+    .display-flex();
+    .align-items(center);
+    &:hover{
+      background: @main-link-hover-color;
+    }
+  }
+
+  &-text{
+    .flex-grow(1);
+  }
+
+  &-text-hidden{
+    visibility: hidden;
+  }
+
+  &-flag{
+    display: inline-block;
+    width: 16px;
+    height: 12px;
+    background: url(../../../public/flags.png) no-repeat;
+  }
+
+  &-flag-ru{
+    background-position: 0 -14px;
+  }
+
+  &-flag-en{
+    background-position: 0 0;
+  }
+}

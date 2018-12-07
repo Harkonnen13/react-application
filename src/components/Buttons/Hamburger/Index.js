@@ -9,14 +9,8 @@ class Hamburger extends Base.PureComponentBase {
     super(props);
     this.root = React.createRef();
     this.state = {
-      checked: this.props.checked === true,
-      hidden: this.props.hidden === true,
       hover: false
     };
-  }
-
-  componentWillReceiveProps(nextProps){
-    this.setState({ hidden: nextProps.hidden });
   }
 
   onMouseOver = () => {
@@ -28,12 +22,11 @@ class Hamburger extends Base.PureComponentBase {
   }
 
   onClick = () => {
-    this.setState({ checked: !this.state.checked });
-    this.props.onCheckedChanged(this.state.checked);
+    this.props.onCheckedChanged();
   }
 
   render() {
-    let checked = this.state.checked ? 'change' : '',
+    let checked = this.props.checked ? 'change' : '',
         hover = this.state.hover ? 'hover' : '';
     return (
       <div className={`${this.className} ${this.props.className || ''}`}
@@ -41,7 +34,7 @@ class Hamburger extends Base.PureComponentBase {
            onMouseOver={this.onMouseOver} 
            onMouseLeave={this.onMouseLeave}
            onClick={this.onClick}
-           hidden={this.state.hidden}>
+           hidden={this.props.hidden}>
           <div className={`${this.className}-bar1 ${hover} ${checked}`}></div>
           <div className={`${this.className}-bar2 ${hover} ${checked}`}></div>
           <div className={`${this.className}-bar3 ${hover} ${checked}`}></div>

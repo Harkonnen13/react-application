@@ -1,8 +1,11 @@
 import React from 'react';
+import './Styles.less';
 
 const LogoButton = ({href, target, className}) => {
   return(
-    <a className={className} href={href || '/'} target={target}/>
+    <div className={`logo-wrapper ${className || ''}`}>
+      <a className='logo' href={href || '/'} target={target}/>
+    </div>
   )
 }
 

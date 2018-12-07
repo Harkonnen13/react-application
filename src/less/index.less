@@ -15,14 +15,15 @@ svg{
   display: inline-block;
   font-weight: bold;
   overflow: hidden;
-  padding: 4px 0 0;
+  padding-top: 4px;
   position: relative;
   text-decoration: none !important;
   .mix-transition(all 0.5s ease);
 
   &:hover{
     color: @main-link-hover-color;
-    padding: 0 0 4px;
+    padding-bottom: 4px;
+    padding-top: 0;
     &::after{
       right: 0;
     }

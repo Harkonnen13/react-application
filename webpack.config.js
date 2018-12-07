@@ -1,4 +1,5 @@
 const data = require('./data');
+const data_en = require('./data_en');
 
 const path = require('path');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
@@ -79,7 +80,14 @@ module.exports = {
     devServer: {
       setup(app){
         app.get('/store', function(req, res){
-          res.send(data.products.filter(p => p.type === req.query.type));
+          switch(req.query.lng){
+            case 'en':
+              res.send(data_en.products.filter(p => p.type === req.query.type));
+              break;
+            case 'ru':
+              res.send(data.products.filter(p => p.type === req.query.type));
+              break;
+          }
         });
       },
       historyApiFallback: {

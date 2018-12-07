@@ -1,19 +1,32 @@
 
 import ActionTypes from '../ActionTypes';
+import Immutable from 'immutable';
 
+/**
+ * Get initial product data
+ */
 function getInitialState(){
-  return { 
-    loaded: false, 
+  return Immutable.Map({ 
+    downloaded: false, 
     list: [] 
-  };
+  });
 }
 
+/**
+ * Reducer for product data
+ * @param {Immutable} state 
+ * @param {{type, payload}} action 
+ */
 function reducer(state, action) {
   switch (action.type) {
     case ActionTypes.FETCH_PRODUCTS:
-      return { loaded: false, list: [] };
+      return state
+        .update('downloaded', () => false)
+        .update('list', l => l.length === 0 ? l : []);
     case ActionTypes.RECEIVE_PRODUCTS:
-      return { loaded: true, list: action.payload };
+      return state
+        .update('downloaded', () => true)
+        .update('list', () => action.payload);
     default:
       return state;
   }

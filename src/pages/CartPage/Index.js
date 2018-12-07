@@ -6,28 +6,24 @@ import ActionTypes from '../../logic/data/ActionTypes';
 import React from 'react';
 import { connect } from 'react-redux';
 
-import MasterPage from '../_base/MasterPage';
+import MasterPage, { 
+  mapCommonProps, 
+  mapCommonDispatch 
+} from '../_base/MasterPage';
+
 import CartCard from '../../components/CartCard';
 import PaymentCard from '../../components/PaymentCard';
 import List from '../../components/List';
+import PageTitle from '../../components/PageTitle';
 
 class CartPage extends MasterPage {
 
   //#region Render methods
 
-  renderTitle(){
-    return (
-      <div className='cartPage-title'>
-        <h1>Корзина</h1>
-        <div style={{border: '1px solid gray'}}></div>
-      </div>
-    );
-  }
-
   renderText(){
     return (
       <div className='cartPage-empty'>
-          Ваша корзина пуста.
+        {this.props.localization.cartPage.empty}
       </div>
     );
   }
@@ -42,26 +38,33 @@ class CartPage extends MasterPage {
     );
   }
 
-  renderCart(products){
+  renderCart(){
     return (
       <div className='cartPage-body'>
         <List itemModificator='cartPage-card'
               className='cartPage-list col-xs-12 col-sm-12 col-md-12 col-lg-8 col-xl-8'>
-          {products.map(this.renderCard)}
+          {this.props.cart.map(this.renderCard)}
         </List>
-        <PaymentCard className='cartPage-payment col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4'/>
+        <PaymentCard 
+          orderCostTitle={this.props.localization.cartPage.orderCost}
+          totalCostTitle={this.props.localization.cartPage.totalCost}
+          discountTitle={this.props.localization.cartPage.discount}
+          totalTitle={this.props.localization.cartPage.total}
+          checkoutButtonTitle={this.props.localization.cartPage.checkout}
+          className='cartPage-payment col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4'/>
       </div>
     );
   }
 
   renderContent = () => {
-    let products = Object.values(this.props.cart),
-        empty = products.length === 0;
+    const empty = this.props.cart && this.props.cart.length === 0;
     return (
       <div className={`cartPage ${this.props.wrapperClass}`}>
-        { this.renderTitle()}
+        <PageTitle className='cartPage-title'>
+          {this.props.localization.cartPage.title}
+        </PageTitle>
         { empty && this.renderText()}
-        { !empty && this.renderCart(products)}
+        { !empty && this.renderCart()}
       </div>
     );
   };
@@ -70,31 +73,28 @@ class CartPage extends MasterPage {
 }
 
 function mapStateToProps(state){
-  return {
-    scrolled: state.get('scrolled'),
-    screen: state.get('screen'),
-    wrapperClass: state.get('wrapperClass'),
-    cart: state.get('cart')
-  };
+  return mapCommonProps({
+    cart: Object.values(state.get('cart'))
+  }, state);
 }
 
 function mapDispatchToProps(dispatch){
-  return {
-   deleteCartItem: (product) => 
-     dispatch({ 
-       type: ActionTypes.DELETE_CART_ITEM, 
-       payload: product
-     }),
-
-   updateCartItem: (product, count) =>
-     dispatch({ 
-       type: ActionTypes.UPDATE_CART_ITEM,
-       payload: {
-        item: product,
-        count: count
-       }
-     })
-  };
+  return mapCommonDispatch({
+    deleteCartItem: (product) => 
+      dispatch({ 
+        type: ActionTypes.DELETE_CART_ITEM, 
+        payload: product
+      }),
+ 
+    updateCartItem: (product, count) =>
+      dispatch({ 
+        type: ActionTypes.UPDATE_CART_ITEM,
+        payload: {
+         item: product,
+         count: count
+        }
+      })
+   }, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(CartPage);
