@@ -26,11 +26,22 @@
       font-size: 24px;
       padding-inline-start: 20px;
 
-      @media (min-width: @screen-xs-max) and (max-width: @screen-md-max){         font-size: 20px; 
+      @media (orientation: landscape) and (min-width: @screen-lg-min) and 
+        (max-width: @screen-lg-max) {
+        font-size: 20px;
       }
 
-      @media (min-width: @screen-xs-max) and (max-width: @screen-xs-max) {           font-size: 16px; 
+      @media (min-width: @screen-xs-max) and (max-width: @screen-md-max){         font-size: 18px; 
       }
+
+      @media (min-width: @screen-min) and (max-width: @screen-xs-max) {           font-size: 16px; 
+      }
+    }
+
+    @media (orientation: landscape) and (min-width: @screen-lg-min) and 
+      (max-width: @screen-max) {
+      font-size: 24px;
+      padding: 60px 16px 0px 30%;
     }
 
     @media (max-width: @screen-lg-min) {
@@ -38,18 +49,18 @@
       padding: 30px 32px 0px 50%;
     }
 
-    @media (min-width: @screen-md-min) and (max-width: @screen-md-max) {
-      font-size: 24px;
-      padding: 60px 32px 0px 30%;
-    }
-
-    @media (max-width: @screen-sm-max) {
+    @media (min-width: @screen-sm-min) and (max-width: @screen-md-max) {
       font-size: 24px;
       padding: 30px 32px 0px 30%;
     }
 
+    @media (max-width: @screen-sm-max) {
+      font-size: 22px;
+      padding: 15px 32px 0px 30%;
+    }
+
     @media (orientation: portrait) and (max-width: @screen-xs-max) {
-      font-size: 24px;
+      font-size: 22px;
       padding: 30px 16px 0px 16px;
     }
   }

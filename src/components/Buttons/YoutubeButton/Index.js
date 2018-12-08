@@ -1,9 +1,10 @@
 import React from 'react';
 
-const YoutubeButton = ({href, target, width, height}) => {
+const YoutubeButton = ({className, href, target, width, height}) => {
   return(
     <a href={href || '/'} target={target || ''}>
       <svg xmlns='http://www.w3.org/2000/svg'
+           className={className || 'main-svg'}
            width={width || 24} 
            height={height || 24} 
            viewBox='0 0 24 24'>

@@ -1,4 +1,4 @@
-svg {
+.main-svg {
   fill: #b5b5b5;
   -webkit-transition: all 0.5s ease;
   -moz-transition: all 0.5s ease;
@@ -6,8 +6,24 @@ svg {
   -ms-transition: all 0.5s ease;
   transition: all 0.5s ease;
 }
-svg:hover {
+.main-svg:hover {
   fill: #efcfa2;
+}
+.s-link {
+  cursor: pointer;
+  color: inherit;
+  display: inline-block;
+  font-weight: bold;
+  overflow: hidden;
+  position: relative;
+  text-decoration: none !important;
+  width: 100%;
+}
+.s-link:hover {
+  color: #efcfa2;
+}
+.s-link:hover::after {
+  right: 0;
 }
 .link {
   cursor: pointer;
@@ -9102,14 +9118,25 @@ a.text-dark:hover, a.text-dark:focus {
   font-size: 24px;
   padding-inline-start: 20px;
 }
-@media (min-width: 575px) and (max-width: 991px) {
+@media (orientation: landscape) and (min-width: 992px) and (max-width: 1199px) {
   .landingPage-info ul {
     font-size: 20px;
   }
 }
-@media (min-width: 575px) and (max-width: 575px) {
+@media (min-width: 575px) and (max-width: 991px) {
+  .landingPage-info ul {
+    font-size: 18px;
+  }
+}
+@media (min-width: 0px) and (max-width: 575px) {
   .landingPage-info ul {
     font-size: 16px;
+  }
+}
+@media (orientation: landscape) and (min-width: 992px) and (max-width: 1200px) {
+  .landingPage-info {
+    font-size: 24px;
+    padding: 60px 16px 0px 30%;
   }
 }
 @media (max-width: 992px) {
@@ -9118,21 +9145,21 @@ a.text-dark:hover, a.text-dark:focus {
     padding: 30px 32px 0px 50%;
   }
 }
-@media (min-width: 768px) and (max-width: 991px) {
-  .landingPage-info {
-    font-size: 24px;
-    padding: 60px 32px 0px 30%;
-  }
-}
-@media (max-width: 767px) {
+@media (min-width: 576px) and (max-width: 991px) {
   .landingPage-info {
     font-size: 24px;
     padding: 30px 32px 0px 30%;
   }
 }
+@media (max-width: 767px) {
+  .landingPage-info {
+    font-size: 22px;
+    padding: 15px 32px 0px 30%;
+  }
+}
 @media (orientation: portrait) and (max-width: 575px) {
   .landingPage-info {
-    font-size: 24px;
+    font-size: 22px;
     padding: 30px 16px 0px 16px;
   }
 }
@@ -9255,7 +9282,15 @@ a.text-dark:hover, a.text-dark:focus {
   -webkit-align-items: center;
   align-items: center;
 }
-.masterPage-col {
+.masterPage-col:first-child {
+  padding-left: 0;
+}
+@media (min-width: 767px) {
+  .masterPage-col:first-child {
+    padding-right: 30px;
+  }
+}
+.masterPage-col:nth-child(2) {
   padding: 0;
 }
 .masterPage-col:last-child {
@@ -9269,19 +9304,36 @@ a.text-dark:hover, a.text-dark:focus {
   -webkit-align-items: flex-end;
   align-items: flex-end;
 }
-.masterPage-item {
-  padding-right: 10px;
-}
-@media (min-width: 575px) and (max-width: 575px) {
-  .masterPage-item {
-    font-size: 14px;
+@media (min-width: 0px) and (max-width: 575px) {
+  .masterPage-col:last-child {
+    padding-top: 15px;
+    -webkit-align-items: center;
+    align-items: center;
   }
 }
-.masterPage-social:last-child {
+.masterPage-f-item {
+  height: 34px;
+  line-height: 34px;
+  font-size: 13px;
+  border-bottom: 1px solid #404040;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+.masterPage-f-item:hover {
+  border-color: #efcfa2;
+  color: #efcfa2;
+}
+.masterPage-f-social {
+  padding-right: 10px;
+}
+.masterPage-f-social:last-child {
   padding-right: 0px;
 }
 .masterPage-socials {
-  padding: 6px 0 0;
+  height: 34px;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: -ms-flex;
@@ -9291,6 +9343,8 @@ a.text-dark:hover, a.text-dark:focus {
   flex-direction: row;
   -webkit-justify-content: flex-end;
   justify-content: flex-end;
+  -webkit-align-items: center;
+  align-items: center;
 }
 @media (min-width: 0px) and (max-width: 575px) {
   .masterPage-socials {
@@ -9299,19 +9353,38 @@ a.text-dark:hover, a.text-dark:focus {
   }
 }
 .masterPage-copyrates {
-  padding-top: 30px;
+  font-size: 13px;
+  padding-top: 16px;
   text-align: end;
 }
 @media (min-width: 0px) and (max-width: 575px) {
   .masterPage-copyrates {
-    padding-top: 0;
+    padding-top: 16px;
     text-align: center;
   }
+}
+.masterPage-copyrates-line {
+  height: 28px;
 }
 .masterPage-footer {
   color: #b5b5b5;
   background: #1e2028;
   padding: 16px 0;
+}
+.masterPage-facebook:hover {
+  fill: #2650a5;
+}
+.masterPage-instagram:hover {
+  fill: #efcfa2;
+}
+.masterPage-vk:hover {
+  fill: #398fc3;
+}
+.masterPage-twitter:hover {
+  fill: #1da1f2;
+}
+.masterPage-youtube:hover {
+  fill: #ff7f7f;
 }
 
 .basePage {

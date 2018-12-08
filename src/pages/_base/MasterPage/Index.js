@@ -104,8 +104,10 @@ class MasterPage extends BasePage {
             <LangPicker change={this.props.changeLang}
                         selected={this.props.lang}
                         list={this.props.localization.getAvailableLanguages()}/>
-            <NavigationButton href='/' height='60px' width='36px'/>
-            <CartButton href='/cart' height='60px' width='46px'/>
+            <NavigationButton className='main-svg' href='/' height={60} 
+                              width={36}/>
+            <CartButton className='main-svg' href='/cart' height={60} 
+                        width={46}/>
           </List> 
           </div>
           <PopupMenuPanel isOpen={this.state.menuOpen && this.showButton}
@@ -135,71 +137,82 @@ class MasterPage extends BasePage {
     return (
       <footer className='masterPage-footer'>
         <div className={`masterPage-f-wrapper ${this.props.wrapperClass}`}>
-          <div className='masterPage-col col-xs-12 col-sm-3 col-md-3 col-lg-3'>
-            <List itemModificator='masterPage-item'
+          <div className='masterPage-col col-6 col-sm-3'>
+            <List itemModificator='masterPage-f-item'
                   orientation={List.orientations.column}>
-              <Link className='link' to='/about/'> 
+              <Link className='s-link' to='/about/'> 
                 {this.props.localization.links.about}
               </Link>
-              <Link className='link' to='/'>
+              <Link className='s-link' to='/'>
                 {this.props.localization.links.feedback}
               </Link>
-              <Link className='link' to='/'>
+              <Link className='s-link' to='/'>
                 {this.props.localization.links.qna}
               </Link>
-              <Link className='link' to='/'>
+              <Link className='s-link' to='/'>
+                {this.props.localization.links.contacts}
+              </Link>
+            </List>
+          </div>
+
+          <div className='masterPage-col col-6 col-sm-3'>
+            <List itemModificator='masterPage-f-item'
+                  orientation={List.orientations.column}>
+              <Link className='s-link' to='/'>
+                {this.props.localization.links.productInfo}
+              </Link>
+              <Link className='s-link' to='/'>
+                {this.props.localization.links.payment}
+              </Link>
+              <Link className='s-link' to='/'>
+                {this.props.localization.links.promotions}
+              </Link>
+              <Link className='s-link' to='/'>
                 {this.props.localization.links.delivery}
               </Link>
             </List>
           </div>
 
-          <div className='masterPage-col col-xs-12 col-sm-4 col-md-4 col-lg-4'>
-            <List itemModificator='masterPage-item'
-                  orientation={List.orientations.column}>
-              <Link className='link' to='/'>
-                {this.props.localization.links.payment}
-              </Link>
-              <Link className='link' to='/'>
-                {this.props.localization.links.promotions}
-              </Link>
-              <Link className='link' to='/'>
-                {this.props.localization.links.productInfo}
-              </Link>
-            </List>
-          </div>
-
-          <div className='masterPage-col col-xs-12 col-sm-5 col-md-5 col-lg-5'>
+          <div className='masterPage-col col-12 col-sm-6'>
             <List className='masterPage-socials'
-                  itemModificator='masterPage-item masterPage-social'>
-              <TwitterButton 
-                  href='https://twitter.com/?lang=ru'
-                  target='_blank'
-                  width='30px'
-                  height='30px'/>
+                  itemModificator='masterPage-f-social'>
               <FacebookButton 
+                  className='main-svg masterPage-facebook'
                   href='https://ru-ru.facebook.com/'
                   target='_blank'
-                  width='30px'
-                  height='30px'/>
+                  width={28}
+                  height={28}/>
+              <TwitterButton 
+                  className='main-svg masterPage-twitter'
+                  href='https://twitter.com/?lang=ru'
+                  target='_blank'
+                  width={28}
+                  height={28}/>
               <VkButton 
+                  className='main-svg masterPage-vk'
                   href='https://vk.com/'
                   target='_blank'
-                  width='30px'
-                  height='30px'/>
+                  width={28}
+                  height={28}/>
               <InstagramButton 
+                  className='main-svg masterPage-instagram'
                   href='https://www.instagram.com/?hl=ru'
                   target='_blank'
-                  width='30px'
-                  height='30px'/>
+                  width={28}
+                  height={28}/>
               <YoutubeButton 
+                  className='main-svg masterPage-youtube'
                   href='https://www.youtube.com/?gl=RU'
                   target='_blank'
-                  width='30px'
-                  height='30px'/>
+                  width={28}
+                  height={28}/>
             </List>
             <div className='masterPage-copyrates'>
-              <p>{this.props.localization.copyrates.title}</p>
-              <p>{this.props.localization.copyrates.rules}</p>
+              <div className='masterPage-copyrates-line'>
+              {this.props.localization.copyrates.title}        
+              </div>
+              <div className='masterPage-copyrates-line'>    {this.props.localization.copyrates.rules}
+              </div>
             </div>
           </div>
         </div>

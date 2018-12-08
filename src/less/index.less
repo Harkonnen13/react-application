@@ -1,11 +1,30 @@
 @import './template.less';
 
-svg{
+.main-svg{
   fill: @menu-light-text-color;
   .mix-transition(all 0.5s ease);
   
   &:hover{
     fill: @main-link-hover-color;
+  }
+}
+
+.s-link{
+  cursor: pointer;
+  color: inherit;
+  display: inline-block;
+  font-weight: bold;
+  overflow: hidden;
+  
+  position: relative;
+  text-decoration: none !important;
+  width: 100%;
+
+  &:hover{
+    color: @main-link-hover-color;
+    &::after{
+      right: 0;
+    }
   }
 }
 

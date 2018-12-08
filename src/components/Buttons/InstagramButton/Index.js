@@ -1,9 +1,10 @@
 import React from 'react';
 
-const InstagramButton = ({href, target, width, height}) => {
+const InstagramButton = ({className, href, target, width, height}) => {
   return(
     <a href={href || '/'} target={target || ''}>
       <svg xmlns='http://www.w3.org/2000/svg'
+           className={className || 'main-svg'}
            width={width} 
            height={height} 
            viewBox='0 0 24 24'>

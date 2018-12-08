@@ -19,11 +19,12 @@ const localization = new LocalizedStrings({
 
       about: 'About Us',
       feedback: 'Feedback',
-      qna: "Questions-Answers",
+      qna: "Questions/Answers",
       delivery: 'Delivery Terms',
       payment: 'Payment',
       promotions: 'Promotions',
-      productInfo: 'Product Info'
+      productInfo: 'Product Info',
+      contacts: 'Contacts'
     },
 
     landingPage:{
@@ -104,11 +105,12 @@ const localization = new LocalizedStrings({
 
       about: 'О нас',
       feedback: 'Оставить отзыв',
-      qna: 'Вопросы-ответы',
+      qna: 'Вопросы/Ответы',
       delivery: 'Условия доставки',
       payment: 'Оплата',
       promotions: 'Акции',
-      productInfo: 'Информация о продукции'
+      productInfo: 'O продукции',
+      contacts: 'Контакты'
     },
 
     buttons:{
