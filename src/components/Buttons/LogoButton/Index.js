@@ -1,10 +1,16 @@
 import React from 'react';
 import './Styles.less';
 
-const LogoButton = ({href, target, className}) => {
+/**
+ * Logo button
+ * @param {*} className
+ * @param {*} href 
+ * @param {*} targete
+ */
+const LogoButton = ({className = "", href = '/', target = ''}) => {
   return(
-    <div className={`logo-wrapper ${className || ''}`}>
-      <a className='logo' href={href || '/'} target={target}/>
+    <div className={`logo-wrapper ${className}`}>
+      <a className='logo' href={href} target={target}/>
     </div>
   )
 }

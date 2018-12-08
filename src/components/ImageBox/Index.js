@@ -5,6 +5,9 @@ import $ from 'jquery';
 import React, { PureComponent } from 'react';
 import Spinner from '../Spinner';
 
+/**
+ * Box for image with loading animation
+ */
 class ImageBox extends PureComponent {
   constructor(props){
     super(props);

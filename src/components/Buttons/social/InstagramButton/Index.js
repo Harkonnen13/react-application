@@ -1,5 +1,12 @@
 import React from 'react';
 
+/**
+ * Instagram social button
+ * @param {*} className 
+ * @param {*} href 
+ * @param {*} width 
+ * @param {*} height
+ */
 const InstagramButton = ({className, href, target, width, height}) => {
   return(
     <a href={href || '/'} target={target || ''}>

@@ -8,6 +8,9 @@ import MasterPage, {
   mapCommonDispatch 
 } from '../_base/MasterPage';
 
+/**
+ * Landing page
+ */
 class LandingPage extends MasterPage {
 
   //#region Render methods

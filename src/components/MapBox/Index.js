@@ -1,5 +1,8 @@
 import React, { PureComponent } from 'react';
 
+/**
+ * Box for rendering map
+ */
 class MapBox extends PureComponent {
   
   componentDidMount(){

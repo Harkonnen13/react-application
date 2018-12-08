@@ -1,5 +1,12 @@
 import React from 'react';
 
+/**
+ * Facebook social button
+ * @param {*} className 
+ * @param {*} href 
+ * @param {*} width 
+ * @param {*} height
+ */
 const FacebookButton = ({className, href, target, width, height}) => {
   return(
     <a href={href || '/'} target={target || ''}>

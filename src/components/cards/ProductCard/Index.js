@@ -3,10 +3,13 @@ import './Styles.less';
 import $ from 'jquery';
 
 import React from 'react';
-import CardBase from '../_comp-base/CardBase';
-import Tag from '../Tag/Index';
-import ImageBox from '../ImageBox';
+import CardBase from '../../_comp-base/CardBase';
+import Tag from './Tag';
+import ImageBox from '../../ImageBox';
 
+/**
+ * Product card
+ */
 class ProductCard extends CardBase {
   constructor(props){
     super(props);
@@ -15,6 +18,12 @@ class ProductCard extends CardBase {
 
   onAddToCart = () => {
     this.props.addCartItem(this.props.product);
+  }
+
+  componentDidMount(){
+    requestAnimationFrame(() => {
+      $(this.card.current).removeClass('productCard-hide');
+    });
   }
 
   renderIng(ing, idx){
@@ -29,12 +38,6 @@ class ProductCard extends CardBase {
     )
   }
 
-  componentDidMount(){
-    requestAnimationFrame(() => {
-      $(this.card.current).removeClass('productCard-hide');
-    });
-  }
-
   renderCard = () => {
     return (
       <div ref={this.card} className='productCard card productCard-hide'>
@@ -42,7 +45,7 @@ class ProductCard extends CardBase {
             {this.props.product.tag.map(this.renderTag)}
           </div>
           <div className='productCard-body card-body'>
-            <ImageBox src={this.props.product.src}></ImageBox>
+            <ImageBox src={this.props.product.src}/>
             <div className='productCard-title card-title'>
               {this.props.product.name}
             </div>
@@ -52,13 +55,13 @@ class ProductCard extends CardBase {
               </ul>
             </div>
             <div className='productCard-panel'>
-                <div className='productCard-price'>
-                  {this.props.product.price} &#x20bd;
-                </div>
-                <button className='productCard-button btn btn-dark' 
-                        onClick={this.onAddToCart}>
-                        {this.props.addButtonTitle || 'Add'}
-                </button>
+              <div className='productCard-price'>
+                {this.props.product.price} &#x20bd;
+              </div>
+              <button className='productCard-button btn btn-dark' 
+                      onClick={this.onAddToCart}>
+                {this.props.addButtonTitle || 'Add'}
+              </button>
             </div>
           </div>
         </div>

@@ -62,12 +62,15 @@ render((
         <PropsRoute path='/pizza/'
                     component={ProductsPage}
                     prodtype='pizza'/>
+
         <PropsRoute path='/pasta/'
                     component={ProductsPage}
                     prodtype='pasta'/>
+
         <PropsRoute path='/salad/'
                     component={ProductsPage}
                     prodtype='salad'/>
+                    
         <PropsRoute path='/drinks/'
                     component={ProductsPage}
                     prodtype='drinks'/>

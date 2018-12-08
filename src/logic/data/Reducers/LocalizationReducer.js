@@ -30,7 +30,7 @@ function getInitialState(){
 
 /**
  * Reducer for cart data (using sessionStorage)
- * @param {*} state 
+ * @param {Immutable} state 
  * @param {{type, payload}} action 
  */
 function reducer(state, action) {

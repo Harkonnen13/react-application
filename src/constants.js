@@ -1,3 +1,6 @@
+/**
+ * Global constants
+ */
 const constants = { 
   /**
    * Screen size enum

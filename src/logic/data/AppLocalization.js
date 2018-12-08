@@ -1,5 +1,8 @@
 import LocalizedStrings from 'react-localization';
 
+/**
+ * Simple app localization
+ */
 const localization = new LocalizedStrings({
   en:{
     copyrates:{

@@ -2,8 +2,11 @@ import 'bootstrap/dist/css/bootstrap.css';
 import './Styles.less';
 
 import React from 'react';
-import CardBase from '../_comp-base/CardBase';
+import CardBase from '../../_comp-base/CardBase';
 
+/**
+ * Cart payment card
+ */
 class PaymentCard extends CardBase {
 
   renderCard = () => {

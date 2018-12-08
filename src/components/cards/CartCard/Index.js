@@ -2,11 +2,15 @@ import 'bootstrap/dist/css/bootstrap.css';
 import './Styles.less';
 
 import React from 'react';
-import CardBase from '../_comp-base/CardBase';
-import ImageBox from '../ImageBox';
-import ValueSelector from '../ValueSelector';
+import CardBase from '../../_comp-base/CardBase';
+import ImageBox from '../../ImageBox';
+import ValueSelector from '../../ValueSelector';
 
+/**
+ * Cart card
+ */
 class CartCard extends CardBase {
+  
   constructor(props){
     super(props);
     this.state = {
@@ -28,10 +32,10 @@ class CartCard extends CardBase {
     return (
       <div className='cartCard card'>
           <div className='cartCard-img col-5 col-sm-3 col-md-2 col-lg-2'>
-              <ImageBox src={this.props.data.src}/>
+            <ImageBox src={this.props.data.src}/>
           </div>
           <div className='cartCard-info col col-sm-9 col-md-10 col-xl-5 container'>
-              <div className='cartCard-title'>{this.props.data.name}</div>
+            <div className='cartCard-title'>{this.props.data.name}</div>
           </div>
           <div className='cartCard-count col-6 col-xl-3'>
             <ValueSelector min={0}

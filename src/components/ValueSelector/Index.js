@@ -4,6 +4,14 @@ import $ from 'jquery';
 
 import React, { PureComponent } from 'react';
 
+/**
+ * Integer value selector
+ * @param {*} value
+ * @param {*} delta
+ * @param {*} min
+ * @param {*} max
+ * @param {Function} onValueChanged 
+ */
 class ValueSelector extends PureComponent {
   constructor(props){
     super(props);

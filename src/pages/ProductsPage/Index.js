@@ -13,10 +13,13 @@ import MasterPage, {
 } from '../_base/MasterPage';
 
 import List from '../../components/List';
-import ProductCard from '../../components/ProductCard';
+import ProductCard from '../../components/cards/ProductCard';
 import Spinner from '../../components/Spinner';
 import PageTitle from '../../components/PageTitle';
 
+/**
+ * Products page
+ */
 class ProductsPage extends MasterPage {
   
   componentDidMount(){

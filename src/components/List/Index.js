@@ -9,7 +9,7 @@ class List extends ListBase {
   componentDidUpdate(){
     if(this.props.justifyContent){
       let wrapper = $(this.root.current),
-      container;
+          container;
       requestAnimationFrame(() => {
         if(this.props.children && this.props.children.length > 0){
           container = $(this.container.current);
@@ -28,10 +28,6 @@ class List extends ListBase {
         wrapper.height(container.height());
       });
     }
-  }
-
-  justifyContent = () => {
-    
   }
 }
 

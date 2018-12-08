@@ -11,11 +11,14 @@ import MasterPage, {
   mapCommonDispatch 
 } from '../_base/MasterPage';
 
-import CartCard from '../../components/CartCard';
-import PaymentCard from '../../components/PaymentCard';
+import CartCard from '../../components/cards/CartCard';
+import PaymentCard from '../../components/cards/PaymentCard';
 import List from '../../components/List';
 import PageTitle from '../../components/PageTitle';
 
+/**
+ * Cart page
+ */
 class CartPage extends MasterPage {
 
   //#region Render methods

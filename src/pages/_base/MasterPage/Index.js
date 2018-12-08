@@ -13,17 +13,17 @@ import ActionTypes from '../../../logic/data/ActionTypes';
 import MenuPanel from '../../../components/Menu/MenuPanel';
 import PopupMenuPanel from '../../../components/Menu/PopupMenuPanel';
 
-import Hamburger from '../../../components/Buttons/Hamburger';
-import CartButton from '../../../components/Buttons/CartButton';
-import LogoButton from '../../../components/Buttons/LogoButton';
-import NavigationButton from '../../../components/Buttons/NavigationButton';
+import Hamburger from '../../../components/buttons/Hamburger';
+import CartButton from '../../../components/buttons/CartButton';
+import LogoButton from '../../../components/buttons/LogoButton';
+import NavigationButton from '../../../components/buttons/NavigationButton';
 
-import TwitterButton from '../../../components/Buttons/TwitterButton';
-import FacebookButton from '../../../components/Buttons/FacebookButton';
-import VkButton from '../../../components/Buttons/VkButton';
-import InstagramButton from '../../../components/Buttons/InstagramButton';
-import YoutubeButton from '../../../components/Buttons/YoutubeButton';
-import LangPicker from '../../../components/LangPicker.js/Index';
+import TwitterButton from '../../../components/buttons/social/TwitterButton';
+import FacebookButton from '../../../components/buttons/social/FacebookButton';
+import VkButton from '../../../components/buttons/social/VkButton';
+import InstButton from '../../../components/buttons/social/InstagramButton';
+import YoutubeButton from '../../../components/buttons/social/YoutubeButton';
+import LangPicker from '../../../components/LangPicker.js';
 
 /**
  * Master page for application, 
@@ -33,7 +33,6 @@ class MasterPage extends BasePage {
 
   constructor(props){
     super(props);
-    console.log(props);
     this.state = {
       menuOpen: false
     };
@@ -194,7 +193,7 @@ class MasterPage extends BasePage {
                   target='_blank'
                   width={28}
                   height={28}/>
-              <InstagramButton 
+              <InstButton 
                   className='main-svg masterPage-instagram'
                   href='https://www.instagram.com/?hl=ru'
                   target='_blank'

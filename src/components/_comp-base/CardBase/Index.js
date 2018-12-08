@@ -3,6 +3,9 @@ import 'bootstrap/dist/css/bootstrap.css';
 import React from 'react';
 import Base from '../ComponentBase';
 
+/**
+ * Card base class
+ */
 class CardBase extends Base.PureComponentBase {
 
   renderCard = () =>{

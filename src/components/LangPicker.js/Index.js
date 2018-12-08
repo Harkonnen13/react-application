@@ -5,6 +5,9 @@ import './Styles.less';
 
 import React, { PureComponent } from 'react';
 
+/**
+ * Language selector
+ */
 class LangPicker extends PureComponent {
 
   constructor(props){

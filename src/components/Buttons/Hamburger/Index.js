@@ -3,6 +3,9 @@ import './Styles.less';
 import React from 'react';
 import Base from '../../_comp-base/ComponentBase';
 
+/**
+ * Hamburger button
+ */
 class Hamburger extends Base.PureComponentBase {
   
   constructor(props){
