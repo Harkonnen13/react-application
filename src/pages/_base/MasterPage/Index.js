@@ -60,11 +60,7 @@ class MasterPage extends BasePage {
   }
 
   onButtonClick = () => this.setState({ menuOpen: !this.state.menuOpen });
-
-  onEnClick = () => this.props.changeLang($con.lang.en);
-
-  onRuClick = () => this.props.changeLang($con.lang.ru);
-
+  
   renderHeader = () => {
     const headerScroll = this.props.scrolled 
       ? 'masterPage-h-scroll' 

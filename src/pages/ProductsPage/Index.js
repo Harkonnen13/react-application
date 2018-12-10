@@ -1,6 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.css';
 import './Styles.less';
 import $ from 'jquery';
+import { debounce } from 'debounce';
 
 import ActionTypes from '../../logic/data/ActionTypes';
 
@@ -28,8 +29,10 @@ class ProductsPage extends MasterPage {
 
   componentDidUpdate(prevProps){
     if(this.props.prodtype !== prevProps.prodtype || 
-       this.props.lang !== prevProps.lang)
-       this.fetchProducts(this.props.prodtype);
+       this.props.lang !== prevProps.lang){
+      this.props.clearProducts();
+      this.fetchProducts(this.props.prodtype);
+    }
   }
 
   fetchProducts = (type) => {
@@ -90,20 +93,21 @@ function mapStateToProps(state){
 }
 
 function mapDispatchToProps(dispatch){
-  return mapCommonDispatch({ 
-    fetchProducts: (href, lng) => {
+  return mapCommonDispatch({
+    clearProducts: () => {
       dispatch({ 
-        type: ActionTypes.FETCH_PRODUCTS,
-        payload: href
-      });
-  
-      $.getJSON(href, { lng: lng }).done(res => {
-          dispatch({ 
-              type: ActionTypes.RECEIVE_PRODUCTS, 
-              payload: res 
-          });
+        type: ActionTypes.CLEAR_PRODUCTS
       });
     },
+
+    fetchProducts: debounce((href, lng) => {
+      $.getJSON(href, { lng: lng }).done(res => {
+        dispatch({ 
+          type: ActionTypes.RECEIVE_PRODUCTS, 
+          payload: res 
+        });
+      });
+    }, 1000),
 
     addCartItem: product => {
       dispatch({ 

@@ -19,7 +19,7 @@ function getInitialState(){
  */
 function reducer(state, action) {
   switch (action.type) {
-    case ActionTypes.FETCH_PRODUCTS:
+    case ActionTypes.CLEAR_PRODUCTS:
       return state
         .update('downloaded', () => false)
         .update('list', l => l.length === 0 ? l : []);

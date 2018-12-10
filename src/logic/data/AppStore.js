@@ -74,7 +74,7 @@ function reducer(state, action) {
     case ActionTypes.LANG_CHANGED:
       return state.update('local', l => LocalizationReducer.reducer(l, action));
 
-    case ActionTypes.FETCH_PRODUCTS:
+    case ActionTypes.CLEAR_PRODUCTS:
     case ActionTypes.RECEIVE_PRODUCTS:
       return state.update('products', ps => ProductReducer.reducer(ps, action));
 

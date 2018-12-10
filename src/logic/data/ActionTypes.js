@@ -6,7 +6,7 @@ const ActionTypes = {
     SCROLL:           'SCROLL',
     RESIZE:           'SIZE',
 
-    FETCH_PRODUCTS:   'FETCH_PRODUCTS',
+    CLEAR_PRODUCTS:   'CLEAR_PRODUCTS',
     RECEIVE_PRODUCTS: 'RECEIVE_PRODUCTS',
 
     ADD_CART_ITEM:    'ADD_CART_ITEM',
