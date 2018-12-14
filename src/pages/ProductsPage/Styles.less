@@ -6,50 +6,17 @@
   .display-flex();
   .flex-direction(column);
   
-  &-wrapper{
+  &-main{
     .flex-grow(1);
     .display-flex();
     .flex-direction(column);
   }
-  
+
   &-title{
     padding: 16px 0;
     & h1{
       font-weight: bold;
       font-variant-caps: all-petite-caps;
-    }
-  }
-
-  &-body{
-    margin: 0 -8px;
-    min-height: 100px;
-    position: relative;
-    .display-flex();
-    .flex-grow(1);
-  }
-
-  &-list{
-    overflow: hidden;
-    width: 100%;
-  }
-
-  &-card{
-    padding: 8px;
-    .display-flex();
-  }
-
-  &-loading{
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    .display-flex();
-    .justify-content(center);
-    .align-items(center);
-
-    &.hide{
-      display: none;
     }
   }
 

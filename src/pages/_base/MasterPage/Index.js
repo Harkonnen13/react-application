@@ -10,8 +10,8 @@ import List from '../../../components/List';
 
 import ActionTypes from '../../../logic/data/ActionTypes';
 
-import MenuPanel from '../../../components/Menu/MenuPanel';
-import PopupMenuPanel from '../../../components/Menu/PopupMenuPanel';
+import MenuPanel from './Menu/MenuPanel';
+import PopupMenuPanel from './Menu/PopupMenuPanel';
 
 import Hamburger from '../../../components/buttons/Hamburger';
 import CartButton from '../../../components/buttons/CartButton';
@@ -204,9 +204,10 @@ class MasterPage extends BasePage {
             </List>
             <div className='masterPage-copyrates'>
               <div className='masterPage-copyrates-line'>
-              {this.props.localization.copyrates.title}        
+                {this.props.localization.copyrates.title}        
               </div>
-              <div className='masterPage-copyrates-line'>    {this.props.localization.copyrates.rules}
+              <div className='masterPage-copyrates-line'>    
+                {this.props.localization.copyrates.rules}
               </div>
             </div>
           </div>

@@ -47,10 +47,7 @@ class LandingPage extends MasterPage {
               <div className='h2'>
                 {this.props.localization.landingPage.info.title}
               </div>
-              {
-                this.props.localization.landingPage
-                  .info.posts.map(this.renderPost)
-              }
+                {this.props.localization.landingPage.info.posts.map(this.renderPost)}
               </div>
             </div>
         </div>

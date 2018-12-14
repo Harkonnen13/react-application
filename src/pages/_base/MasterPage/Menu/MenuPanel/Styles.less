@@ -1,0 +1,21 @@
+@import '../../../../../less/template.less';
+
+.menuPanel{
+  height: 100%;
+  .display-flex();
+  .flex-direction(column);
+  .justify-content(space-evenly);
+
+  &-phone{
+    font-weight: bold;
+    &:hover{
+      color: @main-link-hover-color;
+      .mix-transition(all, 0.25s, ease-in);
+    }
+  }
+
+  &-link{
+    padding: 0px 16px 0px 0;
+    .display-flex();
+  }
+}

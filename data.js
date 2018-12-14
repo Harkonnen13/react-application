@@ -13,8 +13,8 @@ exports.products = [
           "фирменный соус"
       ],
       tag: [
-          "HIT",
-          "VEG"
+          { name: "HIT", title: "Популярное блюдо" },
+          { name: "VEG", title: "Вегетарианское блюдо" }
       ]
   },
 
@@ -31,9 +31,9 @@ exports.products = [
           "острый соус"
       ],
       tag: [
-          "HIT",
-          "HOT",
-          "VEG"
+          { name: "HIT", title: "Популярное блюдо" },
+          { name: "HOT", title: "Острое блюдо" },
+          { name: "VEG", title: "Вегетарианское блюдо" }
       ]
   },
 
@@ -49,8 +49,8 @@ exports.products = [
           "красный лук",
       ],
       tag: [ 
-          "HIT",
-          "HOT"
+          { name: "HIT", title: "Популярное блюдо" },
+          { name: "HOT", title: "Острое блюдо" }
       ]
   },
   {   
@@ -66,8 +66,8 @@ exports.products = [
           "помидоры"
       ],
       tag: [
-          "HIT",
-          "HOT"
+          { name: "HIT", title: "Популярное блюдо" },
+          { name: "HOT", title: "Острое блюдо" }
       ]
   },
   {   
@@ -83,7 +83,7 @@ exports.products = [
           "помидоры"
       ],
       tag: [
-          "NEW"
+          { name: "NEW", title: "Новое блюдо" }
       ]
   },
 
@@ -101,8 +101,8 @@ exports.products = [
           "фирменный соус"
       ],
       tag: [
-          "HIT",
-          "HOT"
+          { name: "HIT", title: "Популярное блюдо" },
+          { name: "HOT", title: "Острое блюдо" }
       ]
   },
 
@@ -119,7 +119,7 @@ exports.products = [
           "лук красный"
       ],
       tag: [
-          "NEW"
+          { name: "NEW", title: "Новое блюдо" }
       ]
   },
 
@@ -134,7 +134,7 @@ exports.products = [
           "соус сливочный",
       ],
       tag: [
-          "VEG"
+          { name: "VEG", title: "Вегетарианское блюдо" }
       ]
   },
 
@@ -151,7 +151,7 @@ exports.products = [
           "сыр Королевский"
       ],
       tag: [
-          "HIT" 
+          { name: "HIT", title: "Популярное блюдо" } 
       ]
   },
 
@@ -193,7 +193,7 @@ exports.products = [
           "Салями"
       ],
       tag: [
-          "NEW"
+          { name: "NEW", title: "Новое блюдо" }
       ]
   },
 
@@ -212,7 +212,7 @@ exports.products = [
           "маслины"
       ],
       tag: [
-          "HIT"
+          { name: "HIT", title: "Популярное блюдо" }
       ]
   },
 

@@ -11,29 +11,29 @@ import Spinner from '../Spinner';
 class ImageBox extends PureComponent {
   constructor(props){
     super(props);
+    this.state = {
+      downloaded: false
+    };
     this.img = React.createRef();
-    this.spinner = React.createRef();
   }
 
   onImgLoad = () => {
-    $(this.spinner.current).addClass('hide');
-    $(this.img.current).addClass('show');
+    this.setState({ downloaded: true });
   }
 
   componentDidMount(){
-    $(this.img.current).prop('src', this.props.src || '');
+    this.img.current.src = this.props.src || '';
   }
 
   render() {
+    const ready = this.state.downloaded ? 'imageBox__img_ready ' : '';
     return (
       <div className='imageBox'>
         <img ref={this.img} 
              src='' 
-             onLoad={this.onImgLoad}                           className='imageBox-img card-img'/>
-        <div ref={this.spinner} 
-             className='imageBox-loading'>
-          <Spinner/>
-        </div>
+             onLoad={this.onImgLoad}
+             className={`imageBox__img ${ready}card-img`}/>
+        <Spinner hide={this.state.downloaded}/>
       </div>
     );
   }

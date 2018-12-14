@@ -7,16 +7,20 @@ import ActionTypes from '../../logic/data/ActionTypes';
 
 import React from 'react';
 import { connect } from 'react-redux';
+import Loadable from 'react-loadable';
 
 import MasterPage, { 
   mapCommonProps, 
   mapCommonDispatch 
 } from '../_base/MasterPage';
 
-import List from '../../components/List';
-import ProductCard from '../../components/cards/ProductCard';
 import Spinner from '../../components/Spinner';
 import PageTitle from '../../components/PageTitle';
+
+const ProductList = Loadable({
+  loader: () => import(/* webpackChunkName: "product-list" */ './ProductList'),
+  loading() { return <div style={{position: 'relative', flexGrow: 1}}><Spinner/></div> }
+});
 
 /**
  * Products page
@@ -41,40 +45,19 @@ class ProductsPage extends MasterPage {
   }
 
   //#region Render methods
-
-  renderProduct = p => {
-    return(
-      <ProductCard product={p} 
-                   key={p.id}
-                   addButtonTitle={this.props.localization.buttons.toCart}
-                   addCartItem={this.props.addCartItem}/>
-    );
-  }
-
+  
   renderContent = () => {
-    const downloaded = this.props.downloaded ? 'hide' : '';
     return (
-      <div className='productsPage-wrapper'>
-        <div className={`productsPage ${this.props.wrapperClass}`}>
+      <div className='productsPage'>
+        <div className={`productsPage-main ${this.props.wrapperClass}`}>
           <PageTitle className='productsPage-title'>
             {this.props.localization.productsPage.title[this.props.prodtype]}
           </PageTitle>
-          <div className='productsPage-body'>
-            <List justifyContent 
-                  className='productsPage-list'
-                  itemModificator='productsPage-card col-12 col-sm-6 col-md-6 col-lg-4'>
-              {this.props.list.map(this.renderProduct)}
-            </List>
-            <div className={`productsPage-loading ${downloaded}`}>
-              <Spinner></Spinner>
-            </div>
-          </div>
+          <ProductList {...this.props}/>
         </div>
         <div className='productsPage-info'>
           <div className={`productsPage-text ${this.props.wrapperClass}`}>
-            <p>
-              {this.props.localization.productsPage.info[this.props.prodtype]}
-            </p>
+            <p>{this.props.localization.productsPage.info[this.props.prodtype]}</p>
           </div>
         </div>
       </div>

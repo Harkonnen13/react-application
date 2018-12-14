@@ -1,7 +1,9 @@
 @import '../../less/template.less';
 
 .cartPage{
-  padding: 0 16px;
+  position: relative;
+  .display-flex();
+  .flex-direction(column);
   .flex-grow(1);
 
   &-title{
@@ -18,33 +20,8 @@
     }
   }
 
-  &-body{
-    padding-bottom: 20px;
+  &-cart{
     .display-flex();
-    .flex-direction(row);
-    .flex-wrap(wrap);
-  }
-
-  &-list{
-    padding: 0;
-  }
-
-  &-card{
-    padding: 0px 0 16px 0;
-    width: 100%;
-    .display-flex();
-    &:first-child{
-      padding-top: 8px;
-    }
-  }
-
-  &-payment{
-    padding-left: 0;
-    padding-right: 0;
-    height: 100%;
-    @media (min-width: @screen-lg-min) {
-      padding-left: 16px;
-      padding-top: 8px;
-    }
+    .flex-grow(1);
   }
 }

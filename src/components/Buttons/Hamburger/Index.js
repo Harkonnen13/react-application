@@ -25,7 +25,8 @@ class Hamburger extends Base.PureComponentBase {
   }
 
   onClick = () => {
-    this.props.onCheckedChanged();
+    if(this.props.onCheckedChanged)
+      this.props.onCheckedChanged();
   }
 
   render() {

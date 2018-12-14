@@ -65,6 +65,7 @@
   }
 
   &-menu-item{
+    height: 100%;
     .display-flex();
 
     &:nth-child(1){
@@ -140,11 +141,13 @@
   &-copyrates{
     font-size: 13px;
     padding-top: 16px;
-    text-align: end;
+    .display-flex();
+    .flex-direction(column);
+    .align-items(flex-end);
 
     @media (min-width: @screen-min) and (max-width: @screen-xs-max) {
       padding-top: 16px;
-      text-align: center;
+      .align-items(center);
     }
   }
 

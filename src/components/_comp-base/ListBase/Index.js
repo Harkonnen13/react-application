@@ -18,7 +18,7 @@ class ListBase extends Base.PureComponentBase {
 
   renderListItem = (child) =>{
     return (
-      <div className={`${this.className}-item ${this.props.itemModificator}`}>
+      <div className={`${this.className}__item ${this.props.itemModificator}`}>
         {child}
       </div>
     );
@@ -27,9 +27,9 @@ class ListBase extends Base.PureComponentBase {
   getOrientationClass = (orientation = ListBase.orientations.row) => {
     switch(orientation){
       case ListBase.orientations.row:
-        return `${this.className}-row`;
+        return `${this.className}__container_orientation_row`;
       case ListBase.orientations.column:
-        return `${this.className}-column`;
+        return `${this.className}__container_orientation_column`;
     }
   }
 
@@ -37,10 +37,10 @@ class ListBase extends Base.PureComponentBase {
     const orientation = this.getOrientationClass(this.props.orientation);
     return (
       <div ref={this.root} 
-           className={`${this.className}-wrapper ${this.props.className || ''}`}
+           className={`${this.className} ${this.props.className || ''}`}
            style={this.props.style}>
         <div ref={this.container} 
-             className={`${this.className} ${orientation}`}>
+             className={`${this.className}__container ${orientation}`}>
           { 
             this.props.itemModificator 
               ? React.Children.map(this.props.children, this.renderListItem) 

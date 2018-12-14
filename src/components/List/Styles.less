@@ -1,24 +1,24 @@
 @import '../../less/template.less';
 
 .list{
-  width: 100%;
-  .display-flex();
-  .flex-wrap(wrap);
-  .justify-content(flex-start);
-  
-  &-wrapper{
-    .mix-transition(height, 1.0s, ease-in);
+  .mix-transition(height, 1.0s, ease-in);
+
+  &__container{
+    width: 100%;
+    display: flex;
+    .flex-wrap(wrap);
+    .justify-content(flex-start);
   }
 
-  &-row{
+  &__item{
+    position: relative;
+  }
+
+  &__container_orientation_row{
     .flex-direction(row);
   }
 
-  &-column{
+  &__container_orientation_column{
     .flex-direction(column);
-  }
-
-  &-item{
-    position: relative;
   }
 }

@@ -1,0 +1,82 @@
+@import '../../../less/template.less';
+
+.productCard{
+  width: 100%;
+  height: 100%;
+  .make-card(column, nowrap);
+
+  &-title{
+    background: transparent;
+    border-bottom: 0px;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    @media (min-width: @screen-xs-max) and (max-width: @screen-md-max){
+      font-size: 20px;
+    }
+  }
+
+  &-body{
+    font-size: 14px;  
+    .display-flex();
+    .justify-content(space-between);
+    .flex-direction(column);
+  }
+
+  &-ings{
+    color: #707070;
+    padding: 8px;
+    .display-flex();
+    .justify-content(center);
+    .flex-direction(row);
+    .flex-wrap(wrap);
+  }
+
+  &-ing{
+    display: block;
+    font-weight: bold;
+    padding-right: 4px;
+
+    &:last-child::after{
+      content: ''
+    }
+
+    &::after{
+      content: ','
+    }
+  }
+
+  &-tags{
+    min-height: 26px; 
+    padding-top: 8px;
+    position: absolute;
+    z-index: 10;
+    .display-flex();
+    .flex-direction(column);
+  }
+
+  &-price{
+    line-height: 26px;
+    font-size: 26px;
+    font-weight: bold;
+    padding-bottom: 8px;
+    text-align: center;
+  }
+
+  &-panel{
+    .display-flex();
+    .justify-content(center);
+    .flex-direction(column);
+    .flex-wrap(wrap);
+  }
+
+  &-button{
+    width: 60%;
+    align-self: center;
+    .primary-button();
+  }
+
+  &-hide{
+    opacity: 0;
+  }
+}

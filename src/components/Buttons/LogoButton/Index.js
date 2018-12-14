@@ -9,9 +9,7 @@ import './Styles.less';
  */
 const LogoButton = ({className = "", href = '/', target = ''}) => {
   return(
-    <div className={`logo-wrapper ${className}`}>
-      <a className='logo' href={href} target={target}/>
-    </div>
+    <a className={`logo ${className}`} href={href} target={target}/>
   )
 }
 

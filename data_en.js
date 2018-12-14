@@ -13,8 +13,8 @@ exports.products = [
           "branded sauce"
       ],
       tag: [
-          "HIT",
-          "VEG"
+          { name: "HIT", title: "Popular" },
+          { name: "VEG", title: "Vegetarian" }
       ]
   },
 
@@ -31,9 +31,9 @@ exports.products = [
           "spicy sauce"
       ],
       tag: [
-          "HIT",
-          "HOT",
-          "VEG"
+          { name: "HIT", title: "Popular" },
+          { name: "HOT", title: "Spicy" },
+          { name: "VEG", title: "Vegetarian" }
       ]
   },
 
@@ -49,8 +49,8 @@ exports.products = [
           "red onion",
       ],
       tag: [ 
-          "HIT",
-          "HOT"
+          { name: "HIT", title: "Popular" },
+          { name: "HOT", title: "Spicy" }
       ]
   },
   {   
@@ -66,8 +66,8 @@ exports.products = [
           "tomatoes"
       ],
       tag: [
-          "HIT",
-          "HOT"
+          { name: "HIT", title: "Popular" },
+          { name: "HOT", title: "Spicy" }
       ]
   },
   {   
@@ -83,7 +83,7 @@ exports.products = [
           "tomatoes"
       ],
       tag: [
-          "NEW"
+          { name: "NEW", title: "New" }
       ]
   },
 
@@ -101,8 +101,8 @@ exports.products = [
           "branded sauce"
       ],
       tag: [
-          "HIT",
-          "HOT"
+          { name: "HIT", title: "Popular" },
+          { name: "HOT", title: "Spicy" }
       ]
   },
 
@@ -119,7 +119,7 @@ exports.products = [
           "red onion"
       ],
       tag: [
-          "NEW"
+          { name: "NEW", title: "New" }
       ]
   },
 
@@ -134,7 +134,7 @@ exports.products = [
           "cream sauce",
       ],
       tag: [
-          "VEG"
+          { name: "VEG", title: "Vegetarian" }
       ]
   },
 
@@ -151,7 +151,7 @@ exports.products = [
           "royal cheese"
       ],
       tag: [
-          "HIT" 
+          { name: "HIT", title: "Popular" } 
       ]
   },
 
@@ -193,7 +193,7 @@ exports.products = [
           "Salami"
       ],
       tag: [
-          "NEW"
+          { name: "NEW", title: "New" }
       ]
   },
 
@@ -212,7 +212,7 @@ exports.products = [
           "olives"
       ],
       tag: [
-          "HIT"
+          { name: "HIT", title: "Popular" }
       ]
   },
 
