@@ -3,8 +3,8 @@ import './Styles.less';
 
 import React, { PureComponent } from 'react';
 
-import ImageBox from '../../../components/ImageBox';
-import ProductTag from '../ProductTag';
+import ImageBox from '../../../components/ImageBox/Index.js';
+import ProductTag from '../ProductTag/Index.js';
 
 const tagStyles = {
   HIT: 'badge badge-primary',

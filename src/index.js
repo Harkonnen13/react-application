@@ -6,17 +6,17 @@ import { Provider } from 'react-redux';
 import { render } from 'react-dom';
 import { Router, Route, Switch } from 'react-router-dom';
 
-import ScrollToTop from './components/_comp-router/ScrollTotop';
-import PropsRoute from './components/_comp-router/PropsRoute';
+import ScrollToTop from './components/_comp-router/ScrollTotop/Index.js';
+import PropsRoute from './components/_comp-router/PropsRoute/Index.js';
 
-import AppHistory from './logic/data/AppHistory';
-import AppStore from './logic/data/AppStore';
-import ActionTypes from './logic/data/ActionTypes';
+import AppHistory from './logic/data/AppHistory.js';
+import AppStore from './logic/data/AppStore.js';
+import ActionTypes from './logic/data/ActionTypes.js';
 
-import LandingPage from './pages/LandingPage';
-import ProductsPage from './pages/ProductsPage';
-import CartPage from './pages/CartPage';
-import AboutPage from './pages/AboutPage';
+import LandingPage from './pages/LandingPage/Index.js';
+import ProductsPage from './pages/ProductsPage/Index.js';
+import CartPage from './pages/CartPage/Index.js';
+import AboutPage from './pages/AboutPage/Index.js';
 
 function onResize(e){
   AppStore.dispatch({ 

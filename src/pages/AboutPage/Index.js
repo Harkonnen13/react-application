@@ -7,9 +7,9 @@ import { connect } from 'react-redux';
 import MasterPage, { 
   mapCommonProps, 
   mapCommonDispatch 
-} from '../_base/MasterPage';
+} from '../_base/MasterPage/Index.js';
 
-import PageTitle from '../../components/PageTitle';
+import PageTitle from '../../components/PageTitle/Index.js';
 
 class AboutPage extends MasterPage {
 

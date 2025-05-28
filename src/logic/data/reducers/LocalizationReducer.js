@@ -1,4 +1,4 @@
-import ActionTypes from '../ActionTypes';
+import ActionTypes from '../ActionTypes.js';
 import AppLocalization from '../AppLocalization';
 import Immutable from 'immutable';
 

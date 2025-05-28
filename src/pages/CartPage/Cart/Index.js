@@ -1,9 +1,9 @@
 import './Styles.less';
 
 import React, { Component } from 'react';
-import List from '../../../components/List';
-import CartCard from '../CartCard';
-import PaymentCard from '../PaymentCard';
+import List from '../../../components/List/Index.js';
+import CartCard from '../CartCard/Index.js';
+import PaymentCard from '../PaymentCard/Index.js';
 
 /**
  * Cart

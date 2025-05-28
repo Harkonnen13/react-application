@@ -1,5 +1,5 @@
 import React from 'react';
-import SvgButton from '../../../_comp-base/SvgButton';
+import SvgButton from '../../../_comp-base/SvgButton/Index.js';
 
 /**
  * Youtube social button

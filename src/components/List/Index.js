@@ -2,7 +2,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import './Styles.less';
 import $ from 'jquery';
 
-import ListBase from '../_comp-base/ListBase';
+import ListBase from '../_comp-base/ListBase/Index.js';
 
 class List extends ListBase {
 

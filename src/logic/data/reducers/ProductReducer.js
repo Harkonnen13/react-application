@@ -1,5 +1,5 @@
 
-import ActionTypes from '../ActionTypes';
+import ActionTypes from '../ActionTypes.js';
 import Immutable from 'immutable';
 
 /**

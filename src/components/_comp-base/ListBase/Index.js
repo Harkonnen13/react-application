@@ -1,5 +1,5 @@
 import React from 'react';
-import Base from '../ComponentBase';
+import Base from '../ComponentBase/Index.js';
 
 class ListBase extends Base.PureComponentBase {
 

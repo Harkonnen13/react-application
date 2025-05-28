@@ -3,10 +3,10 @@ import Immutable from 'immutable';
 import $ from 'jquery';
 import $con from '../../constants';
 
-import ActionTypes from './ActionTypes';
-import CartReducer from './reducers/CartReducer';
-import ProductReducer from './reducers/ProductReducer';
-import LocalizationReducer from './reducers/LocalizationReducer';
+import ActionTypes from './ActionTypes.js';
+import CartReducer from './reducers/CartReducer.js';
+import ProductReducer from './reducers/ProductReducer.js';
+import LocalizationReducer from './reducers/LocalizationReducer.js';
 
 /**
  * Get wrapper class of main containers (header, footer, content)

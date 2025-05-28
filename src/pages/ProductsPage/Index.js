@@ -3,7 +3,7 @@ import './Styles.less';
 import $ from 'jquery';
 import { debounce } from 'debounce';
 
-import ActionTypes from '../../logic/data/ActionTypes';
+import ActionTypes from '../../logic/data/ActionTypes.js';
 
 import React from 'react';
 import { connect } from 'react-redux';
@@ -12,13 +12,13 @@ import Loadable from 'react-loadable';
 import MasterPage, { 
   mapCommonProps, 
   mapCommonDispatch 
-} from '../_base/MasterPage';
+} from '../_base/MasterPage/Index.js';
 
-import Spinner from '../../components/Spinner';
-import PageTitle from '../../components/PageTitle';
+import Spinner from '../../components/Spinner/Index.js';
+import PageTitle from '../../components/PageTitle/Index.js';
 
 const ProductList = Loadable({
-  loader: () => import(/* webpackChunkName: "product-list" */ './ProductList'),
+  loader: () => import(/* webpackChunkName: "product-list" */ './ProductList/Index.js'),
   loading() { return <div style={{position: 'relative', flexGrow: 1}}><Spinner/></div> }
 });
 

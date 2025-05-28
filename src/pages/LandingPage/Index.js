@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import MasterPage, { 
   mapCommonProps, 
   mapCommonDispatch 
-} from '../_base/MasterPage';
+} from '../_base/MasterPage/Index.js';
 
 /**
  * Landing page

@@ -2,8 +2,8 @@ import 'bootstrap/dist/css/bootstrap.css';
 import './Styles.less';
 
 import React, { PureComponent } from 'react';
-import ImageBox from '../../../components/ImageBox';
-import ValueSelector from '../../../components/ValueSelector';
+import ImageBox from '../../../components/ImageBox/Index.js';
+import ValueSelector from '../../../components/ValueSelector/Index.js';
 
 /**
  * Cart card

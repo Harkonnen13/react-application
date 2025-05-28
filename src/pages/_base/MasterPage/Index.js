@@ -1,29 +1,29 @@
 import './Styles.less';
-import $con from '../../../constants';
+import $con from '../../../constants.js';
 
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import BasePage from '../BasePage';
+import BasePage from '../BasePage/Index.js';
 
-import List from '../../../components/List';
+import List from '../../../components/List/Index.js';
 
-import ActionTypes from '../../../logic/data/ActionTypes';
+import ActionTypes from '../../../logic/data/ActionTypes.js';
 
-import MenuPanel from './Menu/MenuPanel';
-import PopupMenuPanel from './Menu/PopupMenuPanel';
+import MenuPanel from './Menu/MenuPanel/Index.js';
+import PopupMenuPanel from './Menu/PopupMenuPanel/Index.js';
 
-import Hamburger from '../../../components/buttons/Hamburger';
-import CartButton from '../../../components/buttons/CartButton';
-import LogoButton from '../../../components/buttons/LogoButton';
-import NavigationButton from '../../../components/buttons/NavigationButton';
+import Hamburger from '../../../components/buttons/Hamburger/Index.js';
+import CartButton from '../../../components/buttons/CartButton/Index.js';
+import LogoButton from '../../../components/buttons/LogoButton/Index.js';
+import NavigationButton from '../../../components/buttons/NavigationButton/Index.js';
 
-import TwitterButton from '../../../components/buttons/social/TwitterButton';
-import FacebookButton from '../../../components/buttons/social/FacebookButton';
-import VkButton from '../../../components/buttons/social/VkButton';
-import InstButton from '../../../components/buttons/social/InstagramButton';
-import YoutubeButton from '../../../components/buttons/social/YoutubeButton';
-import LangPicker from '../../../components/LangPicker.js';
+import TwitterButton from '../../../components/buttons/social/TwitterButton/Index.js';
+import FacebookButton from '../../../components/buttons/social/FacebookButton/Index.js';
+import VkButton from '../../../components/buttons/social/VkButton/Index.js';
+import InstButton from '../../../components/buttons/social/InstagramButton/Index.js';
+import YoutubeButton from '../../../components/buttons/social/YoutubeButton/Index.js';
+import LangPicker from '../../../components/LangPicker/Index.js';
 
 /**
  * Master page for application, 

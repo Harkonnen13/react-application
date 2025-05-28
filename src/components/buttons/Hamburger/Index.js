@@ -1,7 +1,7 @@
 import './Styles.less';
 
 import React from 'react';
-import Base from '../../_comp-base/ComponentBase';
+import Base from '../../_comp-base/ComponentBase/Index.js';
 
 /**
  * Hamburger button

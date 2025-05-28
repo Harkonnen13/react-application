@@ -2,9 +2,9 @@ import './Styles.less';
 
 import React, { Component } from 'react';
 
-import List from '../../../components/List';
-import Spinner from '../../../components/Spinner';
-import ProductCard from '../ProductCard';
+import List from '../../../components/List/Index.js';
+import Spinner from '../../../components/Spinner/Index.js';
+import ProductCard from '../ProductCard/Index.js';
 
 /**
  * Product list

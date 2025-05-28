@@ -3,7 +3,7 @@ import './Styles.less';
 
 import $ from 'jquery';
 import React, { PureComponent } from 'react';
-import Spinner from '../Spinner';
+import Spinner from '../Spinner/Index.js';
 
 /**
  * Box for image with loading animation
